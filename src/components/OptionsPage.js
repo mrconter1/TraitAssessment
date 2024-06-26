@@ -7,17 +7,21 @@ function OptionsPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
       <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
-        <h1 className="text-3xl font-bold text-center">Welcome, {personalId}</h1>
+        <div className="text-center">
+          <h1 className="text-3xl font-bold mb-2">Welcome!</h1>
+          <p className="text-sm text-gray-400">You are logged in as:</p>
+          <p className="text-lg font-semibold text-blue-400 mt-1">{personalId}</p>
+        </div>
         <div className="mt-8 space-y-6">
           <Link 
             to={`/${personalId}/create-survey`}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out"
           >
             Create Survey Link
           </Link>
           <Link 
             to={`/${personalId}/view-results`}
-            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center"
+            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out"
           >
             View Survey Results
           </Link>
