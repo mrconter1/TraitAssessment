@@ -27,7 +27,7 @@ function OptionsPage() {
         throw new Error('Failed to create survey');
       }
 
-      const result = await response.json();
+      await response.json();
       setSurveyId(newSurveyId);
     } catch (error) {
       console.error('Error generating survey link:', error);
