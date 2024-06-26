@@ -13,6 +13,32 @@ exports.handler = async (event, context) => {
   const client = new faunadb.Client({ secret: secretKey });
   
   try {
+    // Ensure the 'surveys' collection exists
+    await client.query(
+      q.If(
+        q.Exists(q.Collection('surveys')),
+        true,
+        q.CreateCollection({ name: 'surveys' })
+      )
+    );
+
+    // Ensure the index exists
+    await client.query(
+      q.If(
+        q.Exists(q.Index('surveys_by_personal_and_survey_id')),
+        true,
+        q.CreateIndex({
+          name: 'surveys_by_personal_and_survey_id',
+          source: q.Collection('surveys'),
+          terms: [
+            { field: ['data', 'personalId'] },
+            { field: ['data', 'surveyId'] }
+          ],
+          unique: true
+        })
+      )
+    );
+
     // Parse the incoming request body
     const { personalId, surveyId } = JSON.parse(event.body);
 
