@@ -1,27 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import questionsData from './questions.json';
+import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [questions, setQuestions] = useState([]);
+  const [personalId, setPersonalId] = useState('');
 
-  useEffect(() => {
-    setQuestions(questionsData.questions);
-  }, []);
+  const generatePersonalId = () => {
+    const id = Array(15).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+    setPersonalId(id);
+  };
 
   return (
-    <div className="App">
-      <h1>Trait Assessment</h1>
-      {questions.map((category, index) => (
-        <div key={index}>
-          <h2>{category.category}</h2>
-          {category.traits.map((trait, traitIndex) => (
-            <div key={traitIndex}>
-              <h3>{trait.trait}</h3>
-              <p>{trait.description}</p>
-            </div>
-          ))}
+    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+      <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
+        <h1 className="text-3xl font-bold text-center">Trait Assessment</h1>
+        <div className="mt-8 space-y-6">
+          <input
+            type="text"
+            value={personalId}
+            onChange={(e) => setPersonalId(e.target.value)}
+            placeholder="Enter your personal ID"
+            className="w-full px-3 py-2 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <div className="flex items-center justify-between">
+            <button
+              onClick={generatePersonalId}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Generate ID
+            </button>
+            <button
+              className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Continue
+            </button>
+          </div>
         </div>
-      ))}
+      </div>
     </div>
   );
 }
