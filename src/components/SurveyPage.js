@@ -13,6 +13,9 @@ function SurveyPage() {
     }));
   };
 
+  // Reverse the order of alternatives
+  const reversedAlternatives = [...questionsData.standardized_alternatives].reverse();
+
   return (
     <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-8">
       <div className="max-w-4xl mx-auto">
@@ -28,7 +31,7 @@ function SurveyPage() {
                     <h3 className="text-xl font-semibold mb-3">{trait.trait}</h3>
                     <p className="text-gray-300 mb-4">{trait.description}</p>
                     <div className="space-y-2">
-                      {questionsData.standardized_alternatives.map((alternative, altIndex) => (
+                      {reversedAlternatives.map((alternative, altIndex) => (
                         <label 
                           key={altIndex} 
                           className="flex items-center space-x-3 p-2 rounded hover:bg-gray-600 transition-colors duration-200 cursor-pointer"
@@ -36,9 +39,9 @@ function SurveyPage() {
                           <input
                             type="radio"
                             name={`trait-${trait.id}`}
-                            value={altIndex + 1}
-                            checked={answers[trait.id] === altIndex + 1}
-                            onChange={() => handleAnswer(trait.id, altIndex + 1)}
+                            value={alternative.value}
+                            checked={answers[trait.id] === alternative.value}
+                            onChange={() => handleAnswer(trait.id, alternative.value)}
                             className="form-radio h-5 w-5 text-blue-600 cursor-pointer"
                           />
                           <span className="text-sm sm:text-base flex-grow">{alternative.description}</span>
