@@ -1,0 +1,121 @@
+{
+  "standardized_alternatives": [
+    "1 (Well below average)",
+    "2 (Below average)",
+    "3 (Slightly below average)",
+    "4 (Average)",
+    "5 (Slightly above average)",
+    "6 (Above average)",
+    "7 (Well above average)"
+  ],
+  "questions": [
+    {
+      "category": "Personal Traits and Interests",
+      "questions": [
+        "When it comes to wisdom, I consider this individual to be...",
+        "When it comes to mental resilience, I consider this individual to be...",
+        "When it comes to creativity, I consider this individual to be...",
+        "When it comes to life ambitions, I consider this individual to be...",
+        "When it comes to humility, I consider this individual to be...",
+        "When it comes to generosity, I consider this individual to be...",
+        "When it comes to optimism, I consider this individual to be...",
+        "When it comes to intellectual curiosity, I consider this individual to be...",
+        "When it comes to self-reliance, I consider this individual to be...",
+        "When it comes to integrity, I consider this individual to be...",
+        "When it comes to adaptability, I consider this individual to be...",
+        "When it comes to courage, I consider this individual to be...",
+        "When it comes to dependability, I consider this individual to be...",
+        "When it comes to honesty, I consider this individual to be...",
+        "When it comes to compassion, I consider this individual to be...",
+        "When it comes to loyalty, I consider this individual to be...",
+        "When it comes to self-discipline, I consider this individual to be...",
+        "When it comes to assertiveness, I consider this individual to be...",
+        "When it comes to gratitude, I consider this individual to be..."
+      ]
+    },
+    {
+      "category": "Emotional and Social Skills",
+      "questions": [
+        "When it comes to empathy, I consider this individual to be...",
+        "When it comes to active listening, I consider this individual to be...",
+        "When it comes to social competence, I consider this individual to be...",
+        "When it comes to social confidence, I consider this individual to be...",
+        "When it comes to need for validation, I consider this individual to be...",
+        "When it comes to conflict resolution, I consider this individual to be...",
+        "When it comes to patience, I consider this individual to be...",
+        "When it comes to sense of humor, I consider this individual to be...",
+        "When it comes to kindness, I consider this individual to be...",
+        "When it comes to forgiveness, I consider this individual to be...",
+        "When it comes to supportiveness, I consider this individual to be...",
+        "When it comes to respectfulness, I consider this individual to be...",
+        "When it comes to openness, I consider this individual to be...",
+        "When it comes to adaptability in social settings, I consider this individual to be...",
+        "When it comes to emotional intelligence, I consider this individual to be...",
+        "When it comes to teamwork, I consider this individual to be..."
+      ]
+    },
+    {
+      "category": "Health and Lifestyle",
+      "questions": [
+        "When it comes to physical health, I consider this individual to be...",
+        "When it comes to mental health, I consider this individual to be...",
+        "When it comes to environmental consciousness, I consider this individual to be...",
+        "When it comes to nutritional habits, I consider this individual to be...",
+        "When it comes to sleep habits, I consider this individual to be...",
+        "When it comes to stress management, I consider this individual to be...",
+        "When it comes to personal hygiene, I consider this individual to be..."
+      ]
+    },
+    {
+      "category": "Cultural and Intellectual Engagement",
+      "questions": [
+        "When it comes to educational level, I consider this individual to be...",
+        "When it comes to language skills, I consider this individual to be...",
+        "When it comes to technological aptitude, I consider this individual to be...",
+        "When it comes to reading habits, I consider this individual to be...",
+        "When it comes to interest in current events, I consider this individual to be...",
+        "When it comes to participation in cultural activities, I consider this individual to be..."
+      ]
+    },
+    {
+      "category": "Family and Social Relations",
+      "questions": [
+        "When it comes to parental harmony, I consider this individual to be...",
+        "When it comes to social network size, I consider this individual to be...",
+        "When it comes to social ties depth, I consider this individual to be...",
+        "When it comes to relationship with siblings, I consider this individual to be...",
+        "When it comes to involvement in community service, I consider this individual to be..."
+      ]
+    },
+    {
+      "category": "Practical Skills",
+      "questions": [
+        "When it comes to culinary skills and enjoyment, I consider this individual to be...",
+        "When it comes to economic management, I consider this individual to be...",
+        "When it comes to punctuality, I consider this individual to be...",
+        "When it comes to tidiness, I consider this individual to be...",
+        "When it comes to home maintenance skills, I consider this individual to be...",
+        "When it comes to organizational skills, I consider this individual to be...",
+        "When it comes to problem-solving skills, I consider this individual to be..."
+      ]
+    },
+    {
+      "category": "Shared Interests",
+      "questions": [
+        "When it comes to hobbies engagement, I consider this individual to be...",
+        "When it comes to interest in music, I consider this individual to be...",
+        "When it comes to interest in sports, I consider this individual to be...",
+        "When it comes to interest in travel, I consider this individual to be..."
+      ]
+    },
+    {
+      "category": "Physical Appearance",
+      "questions": [
+        "When it comes to conventional attractiveness, I consider this individual to be...",
+        "When it comes to physical form, I consider this individual to be...",
+        "When it comes to grooming habits, I consider this individual to be...",
+        "When it comes to personal style, I consider this individual to be..."
+      ]
+    }
+  ]
+}
