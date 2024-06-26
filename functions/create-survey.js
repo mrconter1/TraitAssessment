@@ -10,81 +10,70 @@ exports.handler = async (event, context) => {
     };
   }
   
-  const client = new faunadb.Client({ 
-    secret: secretKey,
-    domain: 'db.fauna.com',
-    scheme: 'https',
-    port: 443,
-    database: 'TraitAssessment'
-  });
+  const client = new faunadb.Client({ secret: secretKey });
   
   try {
-    // Verify we're connected to the correct database
-    const dbName = await client.query(q.Select('name', q.CurrentDatabase()));
-    console.log('Connected to database:', dbName);
-
-    // Ensure 'surveys' collection exists
-    await client.query(
-      q.If(
-        q.Exists(q.Collection('surveys')),
-        true,
-        q.CreateCollection({ name: 'surveys' })
-      )
-    );
-    console.log('Surveys collection is ready');
-
-    // Create a new survey document
+    // Parse the incoming request body
     const { personalId, surveyId } = JSON.parse(event.body);
+
+    if (!personalId || !surveyId) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: "personalId and surveyId are required" })
+      };
+    }
+
+    // Attempt to create a new survey document
     const result = await client.query(
-      q.Create(
-        q.Collection('surveys'),
-        { 
-          data: { 
-            personalId, 
-            surveyId, 
-            createdAt: q.Now() 
+      q.Let(
+        {
+          match: q.Match(q.Index('surveys_by_personal_and_survey_id'), [personalId, surveyId])
+        },
+        q.If(
+          q.Exists(q.Var('match')),
+          { existing: true, data: q.Get(q.Var('match')) },
+          {
+            existing: false,
+            data: q.Create(
+              q.Collection('surveys'),
+              { 
+                data: { 
+                  personalId, 
+                  surveyId
+                }
+              }
+            )
           }
-        }
+        )
       )
     );
 
-    console.log('Survey created:', result);
-
-    // Create an index for querying surveys by personalId and surveyId
-    await client.query(
-      q.If(
-        q.Exists(q.Index('surveys_by_personal_and_survey_id')),
-        true,
-        q.CreateIndex({
-          name: 'surveys_by_personal_and_survey_id',
-          source: q.Collection('surveys'),
-          terms: [
-            { field: ['data', 'personalId'] },
-            { field: ['data', 'surveyId'] }
-          ],
-          unique: true
+    if (result.existing) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ 
+          message: "Survey already exists", 
+          id: result.data.ref.id,
+          data: result.data.data
         })
-      )
-    );
-    console.log('Index created or already exists');
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ 
-        message: "Survey created successfully", 
-        id: result.ref.id,
-        data: result.data
-      })
-    };
+      };
+    } else {
+      return {
+        statusCode: 201,
+        body: JSON.stringify({ 
+          message: "Survey created successfully", 
+          id: result.data.ref.id,
+          data: result.data.data
+        })
+      };
+    }
   } catch (error) {
     console.error('Error:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ 
         error: "Failed to create survey", 
-        details: error.description,
-        code: error.requestResult?.statusCode,
-        errors: error.requestResult?.responseContent?.errors
+        details: error.description
       })
     };
   }
