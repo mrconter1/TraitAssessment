@@ -6,13 +6,10 @@ function SurveyPage() {
   const { surveyId } = useParams();
   const [answers, setAnswers] = useState({});
 
-  const handleAnswer = (categoryIndex, traitIndex, value) => {
+  const handleAnswer = (traitId, value) => {
     setAnswers(prev => ({
       ...prev,
-      [categoryIndex]: {
-        ...prev[categoryIndex],
-        [traitIndex]: value
-      }
+      [traitId]: value
     }));
   };
 
@@ -26,8 +23,8 @@ function SurveyPage() {
             <div key={categoryIndex} className="bg-gray-800 p-6 rounded-lg shadow-lg">
               <h2 className="text-2xl font-bold mb-6 text-center">{category.category}</h2>
               <div className="space-y-8">
-                {category.traits.map((trait, traitIndex) => (
-                  <div key={traitIndex} className="bg-gray-700 p-6 rounded-lg">
+                {category.traits.map((trait) => (
+                  <div key={trait.id} className="bg-gray-700 p-6 rounded-lg">
                     <h3 className="text-xl font-semibold mb-3">{trait.trait}</h3>
                     <p className="text-gray-300 mb-4">{trait.description}</p>
                     <div className="space-y-2">
@@ -38,13 +35,13 @@ function SurveyPage() {
                         >
                           <input
                             type="radio"
-                            name={`category-${categoryIndex}-trait-${traitIndex}`}
+                            name={`trait-${trait.id}`}
                             value={altIndex + 1}
-                            checked={answers[categoryIndex]?.[traitIndex] === altIndex + 1}
-                            onChange={() => handleAnswer(categoryIndex, traitIndex, altIndex + 1)}
+                            checked={answers[trait.id] === altIndex + 1}
+                            onChange={() => handleAnswer(trait.id, altIndex + 1)}
                             className="form-radio h-5 w-5 text-blue-600 cursor-pointer"
                           />
-                          <span className="text-sm sm:text-base flex-grow">{alternative}</span>
+                          <span className="text-sm sm:text-base flex-grow">{alternative.description}</span>
                         </label>
                       ))}
                     </div>
