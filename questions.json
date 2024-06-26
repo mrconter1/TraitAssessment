@@ -11,197 +11,586 @@
   "questions": [
     {
       "category": "Personal Traits and Interests",
-      "questions": [
-        "When it comes to wisdom, I consider this individual to be...",
-        "When it comes to arrogance, I consider this individual to be...",
-        "When it comes to mental resilience, I consider this individual to be...",
-        "When it comes to laziness, I consider this individual to be...",
-        "When it comes to creativity, I consider this individual to be...",
-        "When it comes to impulsiveness, I consider this individual to be...",
-        "When it comes to life ambitions, I consider this individual to be...",
-        "When it comes to vindictiveness, I consider this individual to be...",
-        "When it comes to humility, I consider this individual to be...",
-        "When it comes to selfishness, I consider this individual to be...",
-        "When it comes to generosity, I consider this individual to be...",
-        "When it comes to greed, I consider this individual to be...",
-        "When it comes to optimism, I consider this individual to be...",
-        "When it comes to intolerance, I consider this individual to be...",
-        "When it comes to intellectual curiosity, I consider this individual to be...",
-        "When it comes to jealousy, I consider this individual to be...",
-        "When it comes to self-reliance, I consider this individual to be...",
-        "When it comes to rudeness, I consider this individual to be...",
-        "When it comes to integrity, I consider this individual to be...",
-        "When it comes to inflexibility, I consider this individual to be...",
-        "When it comes to adaptability, I consider this individual to be...",
-        "When it comes to manipulativeness, I consider this individual to be...",
-        "When it comes to courage, I consider this individual to be...",
-        "When it comes to cowardice, I consider this individual to be...",
-        "When it comes to dependability, I consider this individual to be...",
-        "When it comes to dishonesty, I consider this individual to be...",
-        "When it comes to honesty, I consider this individual to be...",
-        "When it comes to hypocrisy, I consider this individual to be...",
-        "When it comes to compassion, I consider this individual to be...",
-        "When it comes to paranoia, I consider this individual to be...",
-        "When it comes to loyalty, I consider this individual to be...",
-        "When it comes to obnoxiousness, I consider this individual to be...",
-        "When it comes to self-discipline, I consider this individual to be...",
-        "When it comes to aggressiveness, I consider this individual to be...",
-        "When it comes to assertiveness, I consider this individual to be...",
-        "When it comes to narcissism, I consider this individual to be...",
-        "When it comes to gratitude, I consider this individual to be...",
-        "When it comes to resentment, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Wisdom",
+          "description": "Wisdom refers to the individual's ability to make sound decisions and judgments based on knowledge and experience."
+        },
+        {
+          "trait": "Arrogance",
+          "description": "Arrogance refers to an exaggerated sense of one's own importance or abilities."
+        },
+        {
+          "trait": "Mental Resilience",
+          "description": "Mental resilience refers to the individual's ability to cope with stress and adversity."
+        },
+        {
+          "trait": "Laziness",
+          "description": "Laziness refers to a lack of willingness to exert effort or work."
+        },
+        {
+          "trait": "Creativity",
+          "description": "Creativity refers to the individual's ability to think outside the box and generate novel ideas."
+        },
+        {
+          "trait": "Impulsiveness",
+          "description": "Impulsiveness refers to acting on whims without considering the consequences."
+        },
+        {
+          "trait": "Life Ambitions",
+          "description": "Life ambitions refer to the individual's long-term goals and aspirations."
+        },
+        {
+          "trait": "Vindictiveness",
+          "description": "Vindictiveness refers to a desire for revenge or to cause harm to others."
+        },
+        {
+          "trait": "Humility",
+          "description": "Humility refers to a modest view of one's own importance."
+        },
+        {
+          "trait": "Selfishness",
+          "description": "Selfishness refers to prioritizing one's own needs and desires over those of others."
+        },
+        {
+          "trait": "Generosity",
+          "description": "Generosity refers to the willingness to give and share with others."
+        },
+        {
+          "trait": "Greed",
+          "description": "Greed refers to an excessive desire for wealth or possessions."
+        },
+        {
+          "trait": "Optimism",
+          "description": "Optimism refers to a hopeful and positive outlook on life."
+        },
+        {
+          "trait": "Intolerance",
+          "description": "Intolerance refers to an unwillingness to accept views, beliefs, or behavior that differ from one's own."
+        },
+        {
+          "trait": "Intellectual Curiosity",
+          "description": "Intellectual curiosity refers to a strong desire to learn and understand."
+        },
+        {
+          "trait": "Jealousy",
+          "description": "Jealousy refers to feelings of envy towards others' achievements or possessions."
+        },
+        {
+          "trait": "Self-Reliance",
+          "description": "Self-reliance refers to the individual's ability to depend on themselves."
+        },
+        {
+          "trait": "Rudeness",
+          "description": "Rudeness refers to discourteous or impolite behavior."
+        },
+        {
+          "trait": "Integrity",
+          "description": "Integrity refers to the individual's adherence to moral and ethical principles."
+        },
+        {
+          "trait": "Inflexibility",
+          "description": "Inflexibility refers to a reluctance to adapt or change."
+        },
+        {
+          "trait": "Adaptability",
+          "description": "Adaptability refers to the individual's ability to adjust to new conditions."
+        },
+        {
+          "trait": "Manipulativeness",
+          "description": "Manipulativeness refers to controlling others for personal gain."
+        },
+        {
+          "trait": "Courage",
+          "description": "Courage refers to the individual's ability to face danger or adversity with bravery."
+        },
+        {
+          "trait": "Cowardice",
+          "description": "Cowardice refers to a lack of bravery or a tendency to avoid danger or difficulties."
+        },
+        {
+          "trait": "Dependability",
+          "description": "Dependability refers to the individual's reliability and trustworthiness."
+        },
+        {
+          "trait": "Dishonesty",
+          "description": "Dishonesty refers to a tendency to deceive or lie."
+        },
+        {
+          "trait": "Honesty",
+          "description": "Honesty refers to the individual's commitment to truthfulness."
+        },
+        {
+          "trait": "Hypocrisy",
+          "description": "Hypocrisy refers to pretending to have beliefs or virtues that one does not actually possess."
+        },
+        {
+          "trait": "Compassion",
+          "description": "Compassion refers to the individual's ability to empathize and care for others."
+        },
+        {
+          "trait": "Paranoia",
+          "description": "Paranoia refers to excessive or irrational suspicion and mistrust of others."
+        },
+        {
+          "trait": "Loyalty",
+          "description": "Loyalty refers to the individual's faithfulness and allegiance."
+        },
+        {
+          "trait": "Obnoxiousness",
+          "description": "Obnoxiousness refers to offensive and unpleasant behavior."
+        },
+        {
+          "trait": "Self-Discipline",
+          "description": "Self-discipline refers to the individual's ability to control their behavior and impulses."
+        },
+        {
+          "trait": "Aggressiveness",
+          "description": "Aggressiveness refers to hostile or violent behavior."
+        },
+        {
+          "trait": "Assertiveness",
+          "description": "Assertiveness refers to the individual's ability to confidently express themselves."
+        },
+        {
+          "trait": "Narcissism",
+          "description": "Narcissism refers to excessive self-love and a lack of empathy for others."
+        },
+        {
+          "trait": "Gratitude",
+          "description": "Gratitude refers to the individual's appreciation and thankfulness."
+        },
+        {
+          "trait": "Resentment",
+          "description": "Resentment refers to bitter indignation at having been treated unfairly."
+        }
       ]
     },
     {
       "category": "Emotional and Social Skills",
-      "questions": [
-        "When it comes to empathy, I consider this individual to be...",
-        "When it comes to hostility, I consider this individual to be...",
-        "When it comes to active listening, I consider this individual to be...",
-        "When it comes to impatience, I consider this individual to be...",
-        "When it comes to social competence, I consider this individual to be...",
-        "When it comes to overcritical, I consider this individual to be...",
-        "When it comes to social confidence, I consider this individual to be...",
-        "When it comes to suspiciousness, I consider this individual to be...",
-        "When it comes to conflict resolution, I consider this individual to be...",
-        "When it comes to volatility, I consider this individual to be...",
-        "When it comes to patience, I consider this individual to be...",
-        "When it comes to unforgiving, I consider this individual to be...",
-        "When it comes to sense of humor, I consider this individual to be...",
-        "When it comes to aloofness, I consider this individual to be...",
-        "When it comes to kindness, I consider this individual to be...",
-        "When it comes to bossiness, I consider this individual to be...",
-        "When it comes to forgiveness, I consider this individual to be...",
-        "When it comes to conceit, I consider this individual to be...",
-        "When it comes to supportiveness, I consider this individual to be...",
-        "When it comes to deceitfulness, I consider this individual to be...",
-        "When it comes to respectfulness, I consider this individual to be...",
-        "When it comes to desperation, I consider this individual to be...",
-        "When it comes to openness, I consider this individual to be...",
-        "When it comes to disobedience, I consider this individual to be...",
-        "When it comes to adaptability in social settings, I consider this individual to be...",
-        "When it comes to fanaticism, I consider this individual to be...",
-        "When it comes to emotional intelligence, I consider this individual to be...",
-        "When it comes to grumpiness, I consider this individual to be...",
-        "When it comes to teamwork, I consider this individual to be...",
-        "When it comes to ingratitude, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Empathy",
+          "description": "Empathy refers to the individual's ability to understand and share the feelings of others."
+        },
+        {
+          "trait": "Hostility",
+          "description": "Hostility refers to antagonistic or unfriendly behavior."
+        },
+        {
+          "trait": "Active Listening",
+          "description": "Active listening refers to the individual's ability to fully concentrate, understand, and respond to others."
+        },
+        {
+          "trait": "Impatience",
+          "description": "Impatience refers to a lack of tolerance for delay or annoyance."
+        },
+        {
+          "trait": "Social Competence",
+          "description": "Social competence refers to the individual's ability to interact effectively with others."
+        },
+        {
+          "trait": "Overcritical",
+          "description": "Overcritical refers to a tendency to judge others too harshly."
+        },
+        {
+          "trait": "Social Confidence",
+          "description": "Social confidence refers to the individual's self-assurance in social situations."
+        },
+        {
+          "trait": "Suspiciousness",
+          "description": "Suspiciousness refers to a tendency to distrust others."
+        },
+        {
+          "trait": "Conflict Resolution",
+          "description": "Conflict resolution refers to the individual's ability to resolve disagreements peacefully."
+        },
+        {
+          "trait": "Volatility",
+          "description": "Volatility refers to unpredictable and explosive behavior."
+        },
+        {
+          "trait": "Patience",
+          "description": "Patience refers to the individual's ability to wait calmly."
+        },
+        {
+          "trait": "Unforgiving",
+          "description": "Unforgiving refers to a reluctance to forgive or let go of grudges."
+        },
+        {
+          "trait": "Sense of Humor",
+          "description": "Sense of humor refers to the individual's ability to find and express amusement."
+        },
+        {
+          "trait": "Aloofness",
+          "description": "Aloofness refers to a distant and detached demeanor."
+        },
+        {
+          "trait": "Kindness",
+          "description": "Kindness refers to the individual's friendly and considerate behavior."
+        },
+        {
+          "trait": "Bossiness",
+          "description": "Bossiness refers to a domineering and controlling manner."
+        },
+        {
+          "trait": "Forgiveness",
+          "description": "Forgiveness refers to the individual's ability to let go of resentment."
+        },
+        {
+          "trait": "Conceit",
+          "description": "Conceit refers to excessive pride in oneself."
+        },
+        {
+          "trait": "Supportiveness",
+          "description": "Supportiveness refers to the individual's ability to provide help and encouragement."
+        },
+        {
+          "trait": "Deceitfulness",
+          "description": "Deceitfulness refers to dishonest behavior."
+        },
+        {
+          "trait": "Respectfulness",
+          "description": "Respectfulness refers to the individual's regard for others' feelings and rights."
+        },
+        {
+          "trait": "Desperation",
+          "description": "Desperation refers to a state of hopelessness leading to rash actions."
+        },
+        {
+          "trait": "Openness",
+          "description": "Openness refers to the individual's willingness to consider new ideas."
+        },
+        {
+          "trait": "Disobedience",
+          "description": "Disobedience refers to a refusal to follow rules or instructions."
+        },
+        {
+          "trait": "Adaptability in Social Settings",
+          "description": "Adaptability in social settings refers to the individual's ability to adjust behavior in different social contexts."
+        },
+        {
+          "trait": "Fanaticism",
+          "description": "Fanaticism refers to excessive and irrational zeal."
+        },
+        {
+          "trait": "Emotional Intelligence",
+          "description": "Emotional intelligence refers to the individual's ability to understand and manage their own and others' emotions."
+        },
+        {
+          "trait": "Grumpiness",
+          "description": "Grumpiness refers to a bad-tempered and irritable disposition."
+        },
+        {
+          "trait": "Teamwork",
+          "description": "Teamwork refers to the individual's ability to work effectively with others."
+        },
+        {
+          "trait": "Ingratitude",
+          "description": "Ingratitude refers to a lack of appreciation for help or kindness."
+        }
       ]
     },
     {
       "category": "Health and Lifestyle",
-      "questions": [
-        "When it comes to physical health, I consider this individual to be...",
-        "When it comes to irresponsibility, I consider this individual to be...",
-        "When it comes to mental health, I consider this individual to be...",
-        "When it comes to maliciousness, I consider this individual to be...",
-        "When it comes to environmental consciousness, I consider this individual to be...",
-        "When it comes to mediocrity, I consider this individual to be...",
-        "When it comes to nutritional habits, I consider this individual to be...",
-        "When it comes to narrow-mindedness, I consider this individual to be...",
-        "When it comes to sleep habits, I consider this individual to be...",
-        "When it comes to overbearingness, I consider this individual to be...",
-        "When it comes to stress management, I consider this individual to be...",
-        "When it comes to pretentiousness, I consider this individual to be...",
-        "When it comes to personal hygiene, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Physical Health",
+          "description": "Physical health refers to the individual's overall physical well-being."
+        },
+        {
+          "trait": "Irresponsibility",
+          "description": "Irresponsibility refers to a lack of accountability or care in one's actions."
+        },
+        {
+          "trait": "Mental Health",
+          "description": "Mental health refers to the individual's overall mental well-being."
+        },
+        {
+          "trait": "Maliciousness",
+          "description": "Maliciousness refers to the desire to cause harm or suffering to others."
+        },
+        {
+          "trait": "Environmental Consciousness",
+          "description": "Environmental consciousness refers to the individual's awareness and concern for environmental issues."
+        },
+        {
+          "trait": "Nutritional Habits",
+          "description": "Nutritional habits refer to the individual's diet and eating behaviors."
+        },
+        {
+          "trait": "Narrow-Mindedness",
+          "description": "Narrow-mindedness refers to a lack of willingness to consider alternative ideas or perspectives."
+        },
+        {
+          "trait": "Sleep Habits",
+          "description": "Sleep habits refer to the individual's patterns and quality of sleep."
+        },
+        {
+          "trait": "Overbearingness",
+          "description": "Overbearingness refers to an overly assertive or domineering manner."
+        },
+        {
+          "trait": "Stress Management",
+          "description": "Stress management refers to the individual's ability to handle stress effectively."
+        },
+        {
+          "trait": "Pretentiousness",
+          "description": "Pretentiousness refers to attempting to impress by affecting greater importance or merit than is actually possessed."
+        },
+        {
+          "trait": "Personal Hygiene",
+          "description": "Personal hygiene refers to the individual's habits and practices related to cleanliness and grooming."
+        }
       ]
     },
     {
       "category": "Cultural and Intellectual Engagement",
-      "questions": [
-        "When it comes to educational level, I consider this individual to be...",
-        "When it comes to stubbornness, I consider this individual to be...",
-        "When it comes to language skills, I consider this individual to be...",
-        "When it comes to indecisiveness, I consider this individual to be...",
-        "When it comes to technological aptitude, I consider this individual to be...",
-        "When it comes to pessimism, I consider this individual to be...",
-        "When it comes to reading habits, I consider this individual to be...",
-        "When it comes to apathy, I consider this individual to be...",
-        "When it comes to interest in current events, I consider this individual to be...",
-        "When it comes to judgmental, I consider this individual to be...",
-        "When it comes to participation in cultural activities, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Educational Level",
+          "description": "Educational level refers to the individual's highest level of formal education."
+        },
+        {
+          "trait": "Stubbornness",
+          "description": "Stubbornness refers to a determination to not change one's attitude or position on something."
+        },
+        {
+          "trait": "Language Skills",
+          "description": "Language skills refer to the individual's ability to communicate effectively in one or more languages."
+        },
+        {
+          "trait": "Indecisiveness",
+          "description": "Indecisiveness refers to the inability to make decisions quickly and effectively."
+        },
+        {
+          "trait": "Technological Aptitude",
+          "description": "Technological aptitude refers to the individual's ability to understand and use technology effectively."
+        },
+        {
+          "trait": "Pessimism",
+          "description": "Pessimism refers to a tendency to see the worst aspect of things or believe the worst will happen."
+        },
+        {
+          "trait": "Reading Habits",
+          "description": "Reading habits refer to the individual's regular practices related to reading."
+        },
+        {
+          "trait": "Apathy",
+          "description": "Apathy refers to a lack of interest, enthusiasm, or concern."
+        },
+        {
+          "trait": "Interest in Current Events",
+          "description": "Interest in current events refers to the individual's engagement with and knowledge of recent news and happenings."
+        },
+        {
+          "trait": "Judgmental",
+          "description": "Judgmental refers to a tendency to make quick and critical judgments about others."
+        },
+        {
+          "trait": "Participation in Cultural Activities",
+          "description": "Participation in cultural activities refers to the individual's involvement in events and practices related to arts, heritage, and culture."
+        }
       ]
     },
     {
       "category": "Family and Social Relations",
-      "questions": [
-        "When it comes to parental harmony, I consider this individual to be...",
-        "When it comes to parental disharmony, I consider this individual to be...",
-        "When it comes to social network size, I consider this individual to be...",
-        "When it comes to social ties shallowness, I consider this individual to be...",
-        "When it comes to social ties depth, I consider this individual to be...",
-        "When it comes to relationship with siblings, I consider this individual to be...",
-        "When it comes to involvement in community service, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Parental Harmony",
+          "description": "Parental harmony refers to the positive and cooperative relationship between the individual's parents."
+        },
+        {
+          "trait": "Social Network Size",
+          "description": "Social network size refers to the number of meaningful social connections the individual has."
+        },
+        {
+          "trait": "Social Ties Depth",
+          "description": "Social ties depth refers to the meaningful and deep connections the individual has with others."
+        },
+        {
+          "trait": "Relationship with Siblings",
+          "description": "Relationship with siblings refers to the quality of the individual's relationship with their brothers and/or sisters."
+        },
+        {
+          "trait": "Involvement in Community Service",
+          "description": "Involvement in community service refers to the individual's participation in activities aimed at helping and improving their community."
+        }
       ]
     },
     {
       "category": "Practical Skills",
-      "questions": [
-        "When it comes to culinary skills and enjoyment, I consider this individual to be...",
-        "When it comes to irresponsibility in practical skills, I consider this individual to be...",
-        "When it comes to economic management, I consider this individual to be...",
-        "When it comes to untidiness, I consider this individual to be...",
-        "When it comes to punctuality, I consider this individual to be...",
-        "When it comes to neglecting home maintenance, I consider this individual to be...",
-        "When it comes to tidiness, I consider this individual to be...",
-        "When it comes to disorganization, I consider this individual to be...",
-        "When it comes to home maintenance skills, I consider this individual to be...",
-        "When it comes to problem-solving skills, I consider this individual to be...",
-        "When it comes to organizational skills, I consider this individual to be...",
-        "When it comes to lack of problem-solving, I consider this individual to be...",
-        "When it comes to time management, I consider this individual to be...",
-        "When it comes to lack of time management, I consider this individual to be...",
-        "When it comes to leadership skills, I consider this individual to be...",
-        "When it comes to emotional stability, I consider this individual to be...",
-        "When it comes to work ethic, I consider this individual to be...",
-        "When it comes to lack of work ethic, I consider this individual to be...",
-        "When it comes to initiative, I consider this individual to be...",
-        "When it comes to lack of initiative, I consider this individual to be...",
-        "When it comes to analytical thinking, I consider this individual to be...",
-        "When it comes to lack of analytical thinking, I consider this individual to be...",
-        "When it comes to critical thinking, I consider this individual to be...",
-        "When it comes to lack of critical thinking, I consider this individual to be...",
-        "When it comes to decision-making ability, I consider this individual to be...",
-        "When it comes to poor decision-making ability, I consider this individual to be...",
-        "When it comes to negotiation skills, I consider this individual to be...",
-        "When it comes to lack of negotiation skills, I consider this individual to be...",
-        "When it comes to public speaking, I consider this individual to be...",
-        "When it comes to cultural awareness, I consider this individual to be...",
-        "When it comes to multitasking ability, I consider this individual to be...",
-        "When it comes to lack of multitasking ability, I consider this individual to be...",
-        "When it comes to attention to detail, I consider this individual to be...",
-        "When it comes to lack of attention to detail, I consider this individual to be...",
-        "When it comes to financial literacy, I consider this individual to be...",
-        "When it comes to project management, I consider this individual to be...",
-        "When it comes to customer service orientation, I consider this individual to be...",
-        "When it comes to flexibility in changing environments, I consider this individual to be...",
-        "When it comes to goal-setting ability, I consider this individual to be...",
-        "When it comes to ethical behavior, I consider this individual to be...",
-        "When it comes to lack of ethical behavior, I consider this individual to be...",
-        "When it comes to influence and persuasion skills, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Culinary Skills and Enjoyment",
+          "description": "Culinary skills and enjoyment refer to the individual's ability and pleasure in cooking and food preparation."
+        },
+        {
+          "trait": "Irresponsibility in Practical Skills",
+          "description": "Irresponsibility in practical skills refers to a lack of reliability and care in performing practical tasks."
+        },
+        {
+          "trait": "Economic Management",
+          "description": "Economic management refers to the individual's ability to manage their finances effectively."
+        },
+        {
+          "trait": "Untidiness",
+          "description": "Untidiness refers to a lack of order and cleanliness in one's surroundings."
+        },
+        {
+          "trait": "Punctuality",
+          "description": "Punctuality refers to the individual's ability to be on time for appointments and deadlines."
+        },
+        {
+          "trait": "Neglecting Home Maintenance",
+          "description": "Neglecting home maintenance refers to a lack of attention to the upkeep and repair of one's living space."
+        },
+        {
+          "trait": "Tidiness",
+          "description": "Tidiness refers to the individual's habit of keeping their environment neat and orderly."
+        },
+        {
+          "trait": "Disorganization",
+          "description": "Disorganization refers to a lack of structure and order in managing tasks and responsibilities."
+        },
+        {
+          "trait": "Home Maintenance Skills",
+          "description": "Home maintenance skills refer to the individual's ability to perform repairs and upkeep on their home."
+        },
+        {
+          "trait": "Problem-Solving Skills",
+          "description": "Problem-solving skills refer to the individual's ability to find solutions to challenges and issues."
+        },
+        {
+          "trait": "Organizational Skills",
+          "description": "Organizational skills refer to the individual's ability to arrange and manage tasks and resources efficiently."
+        },
+        {
+          "trait": "Time Management",
+          "description": "Time management refers to the individual's ability to use their time effectively and productively."
+        },
+        {
+          "trait": "Leadership Skills",
+          "description": "Leadership skills refer to the individual's ability to guide and influence others."
+        },
+        {
+          "trait": "Emotional Stability",
+          "description": "Emotional stability refers to the individual's ability to maintain a balanced and stable mood."
+        },
+        {
+          "trait": "Work Ethic",
+          "description": "Work ethic refers to the individual's dedication and commitment to their work."
+        },
+        {
+          "trait": "Initiative",
+          "description": "Initiative refers to the individual's ability to start tasks and take action independently."
+        },
+        {
+          "trait": "Analytical Thinking",
+          "description": "Analytical thinking refers to the individual's ability to systematically and logically analyze problems."
+        },
+        {
+          "trait": "Critical Thinking",
+          "description": "Critical thinking refers to the individual's ability to evaluate information and arguments objectively."
+        },
+        {
+          "trait": "Decision-Making Ability",
+          "description": "Decision-making ability refers to the individual's capacity to make choices and determine a course of action."
+        },
+        {
+          "trait": "Poor Decision-Making Ability",
+          "description": "Poor decision-making ability refers to difficulty in making choices and determining a course of action."
+        },
+        {
+          "trait": "Negotiation Skills",
+          "description": "Negotiation skills refer to the individual's ability to reach agreements and resolve conflicts through discussion."
+        },
+        {
+          "trait": "Public Speaking",
+          "description": "Public speaking refers to the individual's ability to effectively communicate to an audience."
+        },
+        {
+          "trait": "Cultural Awareness",
+          "description": "Cultural awareness refers to the individual's understanding and appreciation of different cultures."
+        },
+        {
+          "trait": "Multitasking Ability",
+          "description": "Multitasking ability refers to the individual's capability to handle multiple tasks simultaneously."
+        },
+        {
+          "trait": "Attention to Detail",
+          "description": "Attention to detail refers to the individual's ability to notice and consider small and precise aspects of tasks."
+        },
+        {
+          "trait": "Financial Literacy",
+          "description": "Financial literacy refers to the individual's understanding of financial principles and ability to manage finances."
+        },
+        {
+          "trait": "Project Management",
+          "description": "Project management refers to the individual's ability to plan, execute, and oversee projects effectively."
+        },
+        {
+          "trait": "Customer Service Orientation",
+          "description": "Customer service orientation refers to the individual's ability to provide excellent service and support to customers."
+        },
+        {
+          "trait": "Flexibility in Changing Environments",
+          "description": "Flexibility in changing environments refers to the individual's ability to adapt to new and different conditions."
+        },
+        {
+          "trait": "Goal-Setting Ability",
+          "description": "Goal-setting ability refers to the individual's capacity to establish and work towards objectives."
+        },
+        {
+          "trait": "Ethical Behavior",
+          "description": "Ethical behavior refers to the individual's commitment to doing what is morally right and just."
+        },
+        {
+          "trait": "Influence and Persuasion Skills",
+          "description": "Influence and persuasion skills refer to the individual's ability to sway others' opinions and decisions."
+        }
       ]
     },
     {
       "category": "Shared Interests",
-      "questions": [
-        "When it comes to hobbies engagement, I consider this individual to be...",
-        "When it comes to lack of hobbies engagement, I consider this individual to be...",
-        "When it comes to interest in music, I consider this individual to be...",
-        "When it comes to lack of interest in music, I consider this individual to be...",
-        "When it comes to interest in sports, I consider this individual to be...",
-        "When it comes to lack of interest in sports, I consider this individual to be...",
-        "When it comes to interest in travel, I consider this individual to be...",
-        "When it comes to lack of interest in travel, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Hobbies Engagement",
+          "description": "Hobbies engagement refers to the individual's involvement in and enjoyment of various hobbies."
+        },
+        {
+          "trait": "Interest in Music",
+          "description": "Interest in music refers to the individual's enjoyment and appreciation of music."
+        },
+        {
+          "trait": "Interest in Sports",
+          "description": "Interest in sports refers to the individual's enjoyment and participation in sports activities."
+        },
+        {
+          "trait": "Interest in Travel",
+          "description": "Interest in travel refers to the individual's enjoyment and desire to explore different places."
+        }
       ]
     },
     {
       "category": "Physical Appearance",
-      "questions": [
-        "When it comes to conventional attractiveness, I consider this individual to be...",
-        "When it comes to physical form, I consider this individual to be...",
-        "When it comes to grooming habits, I consider this individual to be...",
-        "When it comes to personal style, I consider this individual to be...",
-        "When it comes to lack of grooming habits, I consider this individual to be...",
-        "When it comes to poor personal style, I consider this individual to be..."
+      "traits": [
+        {
+          "trait": "Conventional Attractiveness",
+          "description": "Conventional attractiveness refers to the individual's physical appeal based on societal standards."
+        },
+        {
+          "trait": "Physical Form",
+          "description": "Physical form refers to the individual's body shape and physical condition."
+        },
+        {
+          "trait": "Grooming Habits",
+          "description": "Grooming habits refer to the individual's practices related to personal cleanliness and appearance."
+        },
+        {
+          "trait": "Personal Style",
+          "description": "Personal style refers to the individual's manner of dressing and presenting themselves."
+        }
       ]
     }
   ]
