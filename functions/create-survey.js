@@ -1,7 +1,6 @@
 const faunadb = require('faunadb');
 const q = faunadb.query;
 
-// Disable SSL certificate validation (only for local development)
 if (process.env.NODE_ENV !== 'production') {
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 }
@@ -20,10 +19,18 @@ exports.handler = async (event, context) => {
 
   const client = new faunadb.Client({
     secret: secretKey,
-    // Optional: keepAlive: false, // disable keep-alive to force HTTP/1.1
+    domain: 'db.fauna.com',
+    scheme: 'https',
   });
 
   try {
+    // Log all collections
+    const collections = await client.query(
+      q.Paginate(q.Collections())
+    );
+    console.log('Collections:', collections.data);
+
+    // Proceed with creating the survey
     const { personalId, surveyId } = JSON.parse(event.body);
 
     const result = await client.query(
