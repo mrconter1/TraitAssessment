@@ -15,9 +15,9 @@ exports.handler = async (event, context) => {
   try {
     const result = await client.query(
       q.If(
-        q.Exists(q.Collection('surveys')),
-        { message: "Collection 'surveys' already exists" },
-        q.CreateCollection({ name: 'surveys' })
+        q.Exists(q.Collection('surveys1')),
+        { message: "Collection 'surveys1' already exists" },
+        q.CreateCollection({ name: 'surveys1' })
       )
     );
 
