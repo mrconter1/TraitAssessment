@@ -1,10 +1,6 @@
 const faunadb = require('faunadb');
 const q = faunadb.query;
 
-if (process.env.NODE_ENV !== 'production') {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
-}
-
 exports.handler = async (event, context) => {
   // Use the FAUNADB_SERVER_SECRET provided by Netlify
   const secretKey = process.env.FAUNADB_SERVER_SECRET;
