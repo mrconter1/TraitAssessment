@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { UserCircleIcon } from '@heroicons/react/24/solid';
+import { UserCircleIcon, ClipboardIcon, CheckIcon } from '@heroicons/react/24/solid';
 
 function OptionsPage() {
   const { personalId } = useParams();
   const [surveyId, setSurveyId] = useState('');
   const [copied, setCopied] = useState(false);
+  const linkInputRef = useRef(null);
 
   const generateSurveyLink = () => {
-    const newSurveyId = Array(25).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+    const newSurveyId = Array(10).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
     setSurveyId(newSurveyId);
     
     // Store the association between personalId and surveyId
@@ -18,13 +19,13 @@ function OptionsPage() {
     }
     surveys[personalId].push(newSurveyId);
     localStorage.setItem('surveys', JSON.stringify(surveys));
+  };
 
-    // Copy the link to clipboard
-    const surveyLink = `${window.location.origin}/survey/${newSurveyId}`;
-    navigator.clipboard.writeText(surveyLink).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000); // Reset copied state after 3 seconds
-    });
+  const copyToClipboard = () => {
+    linkInputRef.current.select();
+    document.execCommand('copy');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
@@ -48,11 +49,27 @@ function OptionsPage() {
           {surveyId && (
             <div className="text-center">
               <p className="text-sm text-gray-400 mb-2">Survey Link:</p>
-              <p className="text-blue-400 break-all">{`${window.location.origin}/survey/${surveyId}`}</p>
-              {copied ? (
+              <div className="flex items-center">
+                <input
+                  ref={linkInputRef}
+                  type="text"
+                  value={`${window.location.origin}/survey/${surveyId}`}
+                  readOnly
+                  className="flex-grow bg-gray-700 text-white px-3 py-2 rounded-l focus:outline-none"
+                />
+                <button
+                  onClick={copyToClipboard}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-r focus:outline-none transition duration-150 ease-in-out"
+                >
+                  {copied ? (
+                    <CheckIcon className="h-5 w-5" />
+                  ) : (
+                    <ClipboardIcon className="h-5 w-5" />
+                  )}
+                </button>
+              </div>
+              {copied && (
                 <p className="text-green-500 mt-2">Copied to clipboard!</p>
-              ) : (
-                <p className="text-gray-400 mt-2">Link has been copied to your clipboard</p>
               )}
             </div>
           )}
