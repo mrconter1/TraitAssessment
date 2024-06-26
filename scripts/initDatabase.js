@@ -13,10 +13,6 @@ const client = new faunadb.Client({ secret: secretKey });
 
 async function setupFaunaDB() {
     try {
-        // Verify database connection
-        const dbInfo = await client.query(q.Get(q.Database('Your_Database_Name')));
-        console.log("Connected to database:", dbInfo.name);
-
         // Check if the collection already exists
         const collectionName = 'users3';
         const exists = await client.query(q.Exists(q.Collection(collectionName)));
