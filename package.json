@@ -18,12 +18,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm run init-db && react-scripts start",
-    "build": "npm run init-db && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "npm run init-db && netlify dev",
-    "init-db": "node scripts/initDatabase.js"
+    "dev": "netlify dev"
   },
   "eslintConfig": {
     "extends": [
