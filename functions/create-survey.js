@@ -13,6 +13,10 @@ exports.handler = async (event, context) => {
   const client = new faunadb.Client({ secret: secretKey });
   
   try {
+    // Log the current database
+    const dbInfo = await client.query(q.Get(q.Database('this')));
+    console.log('Connected to database:', dbInfo.name);
+
     // Ensure the 'surveys' collection exists
     await client.query(
       q.If(
@@ -21,6 +25,7 @@ exports.handler = async (event, context) => {
         q.CreateCollection({ name: 'surveys' })
       )
     );
+    console.log('Surveys collection exists or was created');
 
     // Ensure the index exists
     await client.query(
@@ -38,6 +43,7 @@ exports.handler = async (event, context) => {
         })
       )
     );
+    console.log('Index exists or was created');
 
     // Retrieve and log all existing entries
     const existingEntries = await client.query(
@@ -83,6 +89,8 @@ exports.handler = async (event, context) => {
       )
     );
 
+    console.log('Operation result:', JSON.stringify(result, null, 2));
+
     if (result.existing) {
       return {
         statusCode: 200,
@@ -108,7 +116,8 @@ exports.handler = async (event, context) => {
       statusCode: 500,
       body: JSON.stringify({ 
         error: "Failed to create survey", 
-        details: error.description
+        details: error.description,
+        stack: error.stack
       })
     };
   }
