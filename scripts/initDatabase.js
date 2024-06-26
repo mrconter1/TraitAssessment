@@ -12,27 +12,57 @@ console.log("Using FaunaDB Secret:", secretKey.substring(0, 5) + "..." + secretK
 const client = new faunadb.Client({ secret: secretKey });
 
 async function createCollectionIfNotExists(name) {
-    const exists = await client.query(q.Exists(q.Collection(name)));
-    if (!exists) {
-        await client.query(q.CreateCollection({ name }));
-        console.log(`Collection '${name}' created successfully.`);
-    } else {
-        console.log(`Collection '${name}' already exists.`);
+    try {
+        const exists = await client.query(q.Exists(q.Collection(name)));
+        if (!exists) {
+            await client.query(q.CreateCollection({ name }));
+            console.log(`Collection '${name}' created successfully.`);
+        } else {
+            console.log(`Collection '${name}' already exists.`);
+        }
+    } catch (error) {
+        console.error(`Error creating collection '${name}':`, error);
+        throw error;
     }
 }
 
 async function createIndexIfNotExists(name, source, terms, unique = false) {
-    const exists = await client.query(q.Exists(q.Index(name)));
-    if (!exists) {
-        await client.query(q.CreateIndex({
-            name,
-            source: q.Collection(source),
-            terms: terms.map(t => ({ field: ['data', t] })),
-            unique
-        }));
-        console.log(`Index '${name}' created successfully.`);
-    } else {
-        console.log(`Index '${name}' already exists.`);
+    try {
+        const exists = await client.query(q.Exists(q.Index(name)));
+        if (!exists) {
+            const result = await client.query(
+                q.CreateIndex({
+                    name: name,
+                    source: q.Collection(source),
+                    terms: terms.map(t => ({ field: ['data', t] })),
+                    unique: unique
+                })
+            );
+            console.log(`Index '${name}' created successfully:`, result);
+        } else {
+            console.log(`Index '${name}' already exists.`);
+        }
+    } catch (error) {
+        console.error(`Error creating index '${name}':`, error);
+        throw error;
+    }
+}
+
+async function listCollections() {
+    try {
+        const collections = await client.query(q.Paginate(q.Collections()));
+        console.log("All collections:", collections.data);
+    } catch (error) {
+        console.error("Error listing collections:", error);
+    }
+}
+
+async function listIndexes() {
+    try {
+        const indexes = await client.query(q.Paginate(q.Indexes()));
+        console.log("All indexes:", indexes.data);
+    } catch (error) {
+        console.error("Error listing indexes:", error);
     }
 }
 
@@ -73,9 +103,9 @@ async function setupFaunaDB() {
         }
         console.log("StandardizedAlternatives added successfully.");
 
-        // List all collections
-        const allCollections = await client.query(q.Paginate(q.Collections()));
-        console.log("All collections:", allCollections.data);
+        // List all collections and indexes
+        await listCollections();
+        await listIndexes();
 
         console.log("Database setup and verification complete!");
     } catch (error) {
