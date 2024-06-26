@@ -2,7 +2,7 @@ const faunadb = require('faunadb');
 const q = faunadb.query;
 
 exports.handler = async (event, context) => {
-  const secretKey = process.env.FAUNADB_SERVER_SECRET;
+  const secretKey = process.env.FAUNADB_SERVER_KEY;
   if (!secretKey) {
     return {
       statusCode: 500,
