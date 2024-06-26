@@ -13,20 +13,41 @@ exports.handler = async (event, context) => {
   const client = new faunadb.Client({ secret: secretKey });
   
   try {
-    // Attempt a simple query to check connection
-    const result = await client.query(q.Now());
-    console.log('Successfully connected to FaunaDB. Current time:', result);
+    // Ensure 'surveys' collection exists
+    await client.query(
+      q.If(
+        q.Exists(q.Collection('surveys')),
+        true,
+        q.CreateCollection({ name: 'surveys' })
+      )
+    );
+    console.log('Surveys collection is ready');
+
+    // Create a new survey document
+    const { personalId, surveyId } = JSON.parse(event.body);
+    const result = await client.query(
+      q.Create(
+        q.Collection('surveys'),
+        { data: { personalId, surveyId, createdAt: q.Now() } }
+      )
+    );
+
+    console.log('Survey created:', result);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Successfully connected to FaunaDB", time: result })
+      body: JSON.stringify({ 
+        message: "Survey created successfully", 
+        id: result.ref.id,
+        data: result.data
+      })
     };
   } catch (error) {
-    console.error('Error connecting to FaunaDB:', error);
+    console.error('Error:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ 
-        error: "Failed to connect to FaunaDB", 
+        error: "Failed to create survey", 
         details: error.description,
         code: error.requestResult?.statusCode,
         errors: error.requestResult?.responseContent?.errors
