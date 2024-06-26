@@ -7,28 +7,44 @@ function OptionsPage() {
   const { personalId } = useParams();
   const [surveyId, setSurveyId] = useState('');
   const [copied, setCopied] = useState(false);
-  const linkInputRef = useRef(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const linkInputRef = useRef(null);
 
-  const generateSurveyLink = () => {
-    const newSurveyId = Array(10).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
-    setSurveyId(newSurveyId);
-    
-    // Store the association between personalId and surveyId
-    const surveys = JSON.parse(localStorage.getItem('surveys') || '{}');
-    if (!surveys[personalId]) {
-      surveys[personalId] = [];
+  const generateSurveyLink = async () => {
+    setIsGenerating(true);
+    setError('');
+    try {
+      const newSurveyId = Array(10).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+      
+      const response = await fetch('/.netlify/functions/create-survey', {
+        method: 'POST',
+        body: JSON.stringify({ personalId, surveyId: newSurveyId }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create survey');
+      }
+
+      const result = await response.json();
+      setSurveyId(newSurveyId);
+    } catch (error) {
+      console.error('Error generating survey link:', error);
+      setError('Failed to generate survey link. Please try again.');
+    } finally {
+      setIsGenerating(false);
     }
-    surveys[personalId].push(newSurveyId);
-    localStorage.setItem('surveys', JSON.stringify(surveys));
   };
 
   const copyToClipboard = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText(linkInputRef.current.value).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    });
+    if (linkInputRef.current) {
+      navigator.clipboard.writeText(linkInputRef.current.value).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 3000);
+      });
+    }
   };
 
   const handleLogout = () => {
@@ -50,10 +66,12 @@ function OptionsPage() {
         <div className="mt-8 space-y-6">
           <button 
             onClick={generateSurveyLink}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out"
+            disabled={isGenerating}
+            className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out ${isGenerating ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            Generate Survey Link
+            {isGenerating ? 'Generating...' : 'Generate Survey Link'}
           </button>
+          {error && <p className="text-red-500 text-center">{error}</p>}
           {surveyId && (
             <div className="text-center">
               <p className="text-sm text-gray-400 mb-2">Survey Link:</p>
