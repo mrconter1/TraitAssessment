@@ -1,7 +1,8 @@
 const faunadb = require('faunadb'),
       q = faunadb.query;
 
-  const secretKey = process.env.FAUNADB_SERVER_SECRET;
+const secretKey = process.env.FAUNADB_SERVER_SECRET;
+
 const client = new faunadb.Client({ secret: secretKey });
 
 async function setupFaunaDB() {
