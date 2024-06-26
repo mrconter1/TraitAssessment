@@ -19,8 +19,6 @@ exports.handler = async (event, context) => {
 
   const client = new faunadb.Client({
     secret: secretKey,
-    domain: 'db.fauna.com',
-    scheme: 'https',
   });
 
   try {
