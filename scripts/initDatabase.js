@@ -1,28 +1,50 @@
-const faunadb = require('faunadb'),
-      q = faunadb.query;
+const faunadb = require('faunadb');
+const q = faunadb.query;
 
 const secretKey = process.env.FAUNADB_SERVER_SECRET;
 if (!secretKey) {
-    return {
-        statusCode: 500,
-        body: JSON.stringify({ error: "Oops! We couldn't find the database key. Please contact support." })
-    };
+    console.error("Error: FAUNADB_SERVER_SECRET environment variable is not set.");
+    process.exit(1);
 }
 
-// Print the key to the console
-console.log("Using FaunaDB Secret:", secretKey);
+console.log("Using FaunaDB Secret:", secretKey.substring(0, 5) + "..." + secretKey.substring(secretKey.length - 5));
 
 const client = new faunadb.Client({ secret: secretKey });
 
 async function setupFaunaDB() {
-  try {
-    // Create a collection
-    await client.query(q.CreateCollection({ name: 'users1' }));
+    try {
+        // Verify database connection
+        const dbInfo = await client.query(q.Get(q.Database('Your_Database_Name')));
+        console.log("Connected to database:", dbInfo.name);
 
-    console.log("Database setup complete!");
-  } catch (error) {
-    console.error("Error setting up database: ", error.message);
-  }
+        // Check if the collection already exists
+        const collectionName = 'users3';
+        const exists = await client.query(q.Exists(q.Collection(collectionName)));
+        
+        if (!exists) {
+            // Create the collection
+            const createResult = await client.query(q.CreateCollection({ name: collectionName }));
+            console.log("Collection creation result:", createResult);
+            console.log(`Collection '${collectionName}' created successfully.`);
+        } else {
+            console.log(`Collection '${collectionName}' already exists.`);
+        }
+
+        // List all collections
+        const allCollections = await client.query(q.Paginate(q.Collections()));
+        console.log("All collections:", allCollections.data);
+
+        console.log("Database setup and verification complete!");
+    } catch (error) {
+        console.error("Error setting up or verifying database:", error);
+        if (error.description) {
+            console.error("Error description:", error.description);
+        }
+    }
 }
 
-setupFaunaDB();
+setupFaunaDB().then(() => {
+    console.log("Script execution completed.");
+}).catch((error) => {
+    console.error("Unhandled error during script execution:", error);
+});
