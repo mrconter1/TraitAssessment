@@ -10,7 +10,9 @@ exports.handler = async (event, context) => {
     };
   }
   
-  console.log('Secret key is set:', !!secretKey);
+  console.log('Secret key is:', secretKey);
+
+  const client = new faunadb.Client({ secret: secretKey });
   
   try {
     const result = await client.query(
