@@ -1,6 +1,10 @@
 {
     "standardized_alternatives": [
         {
+            "value": -1,
+            "description": "I prefer not to answer"
+        },
+        {
             "value": 0,
             "description": "Well below average"
         },
