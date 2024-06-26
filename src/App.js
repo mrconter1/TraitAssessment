@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import OptionsPage from './components/OptionsPage';
+import { uniqueNamesGenerator, Config, adjectives, colors, animals } from 'unique-names-generator';
 
 function HomePage() {
   const [personalId, setPersonalId] = useState('');
 
   const generatePersonalId = () => {
-    const id = Array(15).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+    const customConfig: Config = {
+      dictionaries: [adjectives, colors, animals],
+      separator: '-',
+      length: 3,
+    };
+    const id = uniqueNamesGenerator(customConfig);
     setPersonalId(id);
   };
 
