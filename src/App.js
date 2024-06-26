@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import OptionsPage from './components/OptionsPage';
 
-function App() {
+function HomePage() {
   const [personalId, setPersonalId] = useState('');
 
   const generatePersonalId = () => {
@@ -29,6 +30,7 @@ function App() {
               Generate ID
             </button>
             <button
+              onClick={() => personalId && (window.location.href = `/${personalId}`)}
               className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               Continue
@@ -37,6 +39,20 @@ function App() {
         </div>
       </div>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:personalId" element={<OptionsPage />} />
+        <Route path="/:personalId/create-survey" element={<div>Create Survey Page (To be implemented)</div>} />
+        <Route path="/:personalId/view-results" element={<div>View Results Page (To be implemented)</div>} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
 }
 
