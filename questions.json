@@ -1,649 +1,685 @@
 {
-  "standardized_alternatives": [
-    "1 (Well below average)",
-    "2 (Below average)",
-    "3 (Slightly below average)",
-    "4 (Average)",
-    "5 (Slightly above average)",
-    "6 (Above average)",
-    "7 (Well above average)"
-  ],
-  "questions": [
-    {
-      "category": "Personal Traits and Interests",
-      "traits": [
+    "standardized_alternatives": [
+        "1 (Well below average)",
+        "2 (Below average)",
+        "3 (Slightly below average)",
+        "4 (Average)",
+        "5 (Slightly above average)",
+        "6 (Above average)",
+        "7 (Well above average)"
+    ],
+    "questions": [
         {
-          "trait": "Wisdom",
-          "description": "Wisdom refers to the individual's ability to make sound decisions and judgments based on knowledge and experience."
+            "category": "Personal Traits and Interests",
+            "traits": [
+                {
+                    "trait": "Wisdom",
+                    "description": "Wisdom refers to the individual's ability to make sound decisions and judgments based on knowledge and experience."
+                },
+                {
+                    "trait": "Arrogance",
+                    "description": "Arrogance refers to an exaggerated sense of one's own importance or abilities."
+                },
+                {
+                    "trait": "Resilience",
+                    "description": "Resilience refers to the individual's ability to cope with stress and adversity."
+                },
+                {
+                    "trait": "Laziness",
+                    "description": "Laziness refers to a lack of willingness to exert effort or work."
+                },
+                {
+                    "trait": "Creativity",
+                    "description": "Creativity refers to the individual's ability to think outside the box and generate novel ideas."
+                },
+                {
+                    "trait": "Impulsiveness",
+                    "description": "Impulsiveness refers to acting on whims without considering the consequences."
+                },
+                {
+                    "trait": "Life Ambitions",
+                    "description": "Life ambitions refer to the individual's long-term goals and aspirations."
+                },
+                {
+                    "trait": "Vindictiveness",
+                    "description": "Vindictiveness refers to a desire for revenge or to cause harm to others."
+                },
+                {
+                    "trait": "Humility",
+                    "description": "Humility refers to a modest view of one's own importance."
+                },
+                {
+                    "trait": "Selfishness",
+                    "description": "Selfishness refers to prioritizing one's own needs and desires over those of others."
+                },
+                {
+                    "trait": "Generosity",
+                    "description": "Generosity refers to the willingness to give and share with others."
+                },
+                {
+                    "trait": "Greed",
+                    "description": "Greed refers to an excessive desire for wealth or possessions."
+                },
+                {
+                    "trait": "Optimism",
+                    "description": "Optimism refers to a hopeful and positive outlook on life."
+                },
+                {
+                    "trait": "Intolerance",
+                    "description": "Intolerance refers to an unwillingness to accept views, beliefs, or behavior that differ from one's own."
+                },
+                {
+                    "trait": "Intellectual Curiosity",
+                    "description": "Intellectual curiosity refers to a strong desire to learn and understand."
+                },
+                {
+                    "trait": "Jealousy",
+                    "description": "Jealousy refers to feelings of envy towards others' achievements or possessions."
+                },
+                {
+                    "trait": "Self-Reliance",
+                    "description": "Self-reliance refers to the individual's ability to depend on themselves."
+                },
+                {
+                    "trait": "Rudeness",
+                    "description": "Rudeness refers to discourteous or impolite behavior."
+                },
+                {
+                    "trait": "Integrity",
+                    "description": "Integrity refers to the individual's adherence to moral and ethical principles."
+                },
+                {
+                    "trait": "Inflexibility",
+                    "description": "Inflexibility refers to a reluctance to adapt or change."
+                },
+                {
+                    "trait": "Adaptability",
+                    "description": "Adaptability refers to the individual's ability to adjust to new conditions."
+                },
+                {
+                    "trait": "Manipulativeness",
+                    "description": "Manipulativeness refers to controlling others for personal gain."
+                },
+                {
+                    "trait": "Courage",
+                    "description": "Courage refers to the individual's ability to face danger or adversity with bravery."
+                },
+                {
+                    "trait": "Cowardice",
+                    "description": "Cowardice refers to a lack of bravery or a tendency to avoid danger or difficulties."
+                },
+                {
+                    "trait": "Dependability",
+                    "description": "Dependability refers to the individual's reliability and trustworthiness."
+                },
+                {
+                    "trait": "Dishonesty",
+                    "description": "Dishonesty refers to a tendency to deceive or lie."
+                },
+                {
+                    "trait": "Honesty",
+                    "description": "Honesty refers to the individual's commitment to truthfulness."
+                },
+                {
+                    "trait": "Hypocrisy",
+                    "description": "Hypocrisy refers to pretending to have beliefs or virtues that one does not actually possess."
+                },
+                {
+                    "trait": "Compassion",
+                    "description": "Compassion refers to the individual's ability to empathize and care for others."
+                },
+                {
+                    "trait": "Paranoia",
+                    "description": "Paranoia refers to excessive or irrational suspicion and mistrust of others."
+                },
+                {
+                    "trait": "Loyalty",
+                    "description": "Loyalty refers to the individual's faithfulness and allegiance."
+                },
+                {
+                    "trait": "Obnoxiousness",
+                    "description": "Obnoxiousness refers to offensive and unpleasant behavior."
+                },
+                {
+                    "trait": "Self-Discipline",
+                    "description": "Self-discipline refers to the individual's ability to control their behavior and impulses."
+                },
+                {
+                    "trait": "Aggressiveness",
+                    "description": "Aggressiveness refers to hostile or violent behavior."
+                },
+                {
+                    "trait": "Assertiveness",
+                    "description": "Assertiveness refers to the individual's ability to confidently express themselves."
+                },
+                {
+                    "trait": "Narcissism",
+                    "description": "Narcissism refers to excessive self-love and a lack of empathy for others."
+                },
+                {
+                    "trait": "Gratitude",
+                    "description": "Gratitude refers to the individual's appreciation and thankfulness."
+                },
+                {
+                    "trait": "Resentment",
+                    "description": "Resentment refers to bitter indignation at having been treated unfairly."
+                },
+                {
+                    "trait": "Cultural Intelligence",
+                    "description": "Cultural intelligence refers to the capability to relate and work effectively across cultures."
+                },
+                {
+                    "trait": "Digital Literacy",
+                    "description": "Digital literacy refers to proficiency in using digital technologies and navigating online environments."
+                },
+                {
+                    "trait": "Mindfulness",
+                    "description": "Mindfulness refers to the practice of being aware and fully present in the moment."
+                },
+                {
+                    "trait": "Entrepreneurial Spirit",
+                    "description": "Entrepreneurial spirit refers to the inclination to start and manage new ventures or projects."
+                },
+                {
+                    "trait": "Sustainability Awareness",
+                    "description": "Sustainability awareness refers to understanding and commitment to sustainable practices."
+                },
+                {
+                    "trait": "Growth Mindset",
+                    "description": "Growth mindset refers to the belief that abilities and intelligence can be developed through effort and learning."
+                },
+                {
+                    "trait": "Adaptability to Technology",
+                    "description": "Adaptability to technology refers to the ability to keep up with and utilize new technological advancements."
+                },
+                {
+                    "trait": "Work-Life Balance Management",
+                    "description": "Work-life balance management refers to the skill in maintaining a healthy balance between professional and personal life."
+                },
+                {
+                    "trait": "Emotional Regulation",
+                    "description": "Emotional regulation refers to the ability to manage and respond to an emotional experience."
+                },
+                {
+                    "trait": "Grit",
+                    "description": "Grit refers to perseverance and passion for long-term goals."
+                },
+                {
+                    "trait": "Self-Advocacy",
+                    "description": "Self-advocacy refers to the ability to speak up for oneself and one's needs."
+                },
+                {
+                    "trait": "Networking Skills",
+                    "description": "Networking skills refer to the ability to build and maintain professional relationships."
+                },
+                {
+                    "trait": "Global Awareness",
+                    "description": "Global awareness refers to understanding of global issues and cultures."
+                },
+                {
+                    "trait": "Crisis Management",
+                    "description": "Crisis management refers to the individual's ability to handle and navigate through unexpected, high-stress situations effectively."
+                },
+                {
+                    "trait": "Maturity",
+                    "description": "Maturity refers to the individual's level of emotional and behavioral development, often characterized by responsible decision-making and self-awareness."
+                },
+                {
+                    "trait": "Authenticity",
+                    "description": "Authenticity refers to the individual's tendency to act in ways that genuinely reflect their true self, values, and beliefs."
+                },
+                {
+                    "trait": "Accountability",
+                    "description": "Accountability refers to the individual's willingness to take responsibility for their actions and decisions, including their consequences."
+                },
+                {
+                    "trait": "Cognitive Flexibility",
+                    "description": "Cognitive flexibility refers to the individual's ability to adapt their thinking and switch between different concepts or tasks, especially in response to unexpected or novel situations."
+                },
+                {
+                    "trait": "Emotional Self-Awareness",
+                    "description": "Emotional self-awareness refers to the individual's ability to recognize, understand, and articulate their own emotions and their impact on thoughts and behaviors."
+                },
+                {
+                    "trait": "Innovative Thinking",
+                    "description": "Innovative thinking refers to the individual's capacity to generate novel ideas, solutions, or approaches that bring value or improvement to existing situations or challenges."
+                }
+            ]
         },
         {
-          "trait": "Arrogance",
-          "description": "Arrogance refers to an exaggerated sense of one's own importance or abilities."
+            "category": "Emotional and Social Skills",
+            "traits": [
+                {
+                    "trait": "Empathy",
+                    "description": "Empathy refers to the individual's ability to understand and share the feelings of others."
+                },
+                {
+                    "trait": "Hostility",
+                    "description": "Hostility refers to antagonistic or unfriendly behavior."
+                },
+                {
+                    "trait": "Active Listening",
+                    "description": "Active listening refers to the individual's ability to fully concentrate, understand, and respond to others."
+                },
+                {
+                    "trait": "Impatience",
+                    "description": "Impatience refers to a lack of tolerance for delay or annoyance."
+                },
+                {
+                    "trait": "Social Competence",
+                    "description": "Social competence refers to the individual's ability to interact effectively with others."
+                },
+                {
+                    "trait": "Overcritical",
+                    "description": "Overcritical refers to a tendency to judge others too harshly."
+                },
+                {
+                    "trait": "Social Confidence",
+                    "description": "Social confidence refers to the individual's self-assurance in social situations."
+                },
+                {
+                    "trait": "Suspiciousness",
+                    "description": "Suspiciousness refers to a tendency to distrust others."
+                },
+                {
+                    "trait": "Conflict Resolution",
+                    "description": "Conflict resolution refers to the individual's ability to resolve disagreements peacefully."
+                },
+                {
+                    "trait": "Volatility",
+                    "description": "Volatility refers to unpredictable and explosive behavior."
+                },
+                {
+                    "trait": "Patience",
+                    "description": "Patience refers to the individual's ability to wait calmly."
+                },
+                {
+                    "trait": "Unforgiving",
+                    "description": "Unforgiving refers to a reluctance to forgive or let go of grudges."
+                },
+                {
+                    "trait": "Sense of Humor",
+                    "description": "Sense of humor refers to the individual's ability to find and express amusement."
+                },
+                {
+                    "trait": "Aloofness",
+                    "description": "Aloofness refers to a distant and detached demeanor."
+                },
+                {
+                    "trait": "Kindness",
+                    "description": "Kindness refers to the individual's friendly and considerate behavior."
+                },
+                {
+                    "trait": "Bossiness",
+                    "description": "Bossiness refers to a domineering and controlling manner."
+                },
+                {
+                    "trait": "Forgiveness",
+                    "description": "Forgiveness refers to the individual's ability to let go of resentment."
+                },
+                {
+                    "trait": "Conceit",
+                    "description": "Conceit refers to excessive pride in oneself."
+                },
+                {
+                    "trait": "Supportiveness",
+                    "description": "Supportiveness refers to the individual's ability to provide help and encouragement."
+                },
+                {
+                    "trait": "Deceitfulness",
+                    "description": "Deceitfulness refers to dishonest behavior."
+                },
+                {
+                    "trait": "Respectfulness",
+                    "description": "Respectfulness refers to the individual's regard for others' feelings and rights."
+                },
+                {
+                    "trait": "Desperation",
+                    "description": "Desperation refers to a state of hopelessness leading to rash actions."
+                },
+                {
+                    "trait": "Openness",
+                    "description": "Openness refers to the individual's willingness to consider new ideas."
+                },
+                {
+                    "trait": "Disobedience",
+                    "description": "Disobedience refers to a refusal to follow rules or instructions."
+                },
+                {
+                    "trait": "Adaptability in Social Settings",
+                    "description": "Adaptability in social settings refers to the individual's ability to adjust behavior in different social contexts."
+                },
+                {
+                    "trait": "Fanaticism",
+                    "description": "Fanaticism refers to excessive and irrational zeal."
+                },
+                {
+                    "trait": "Emotional Intelligence",
+                    "description": "Emotional intelligence refers to the individual's ability to understand and manage their own and others' emotions."
+                },
+                {
+                    "trait": "Grumpiness",
+                    "description": "Grumpiness refers to a bad-tempered and irritable disposition."
+                },
+                {
+                    "trait": "Teamwork",
+                    "description": "Teamwork refers to the individual's ability to work effectively with others."
+                },
+                {
+                    "trait": "Ingratitude",
+                    "description": "Ingratitude refers to a lack of appreciation for help or kindness."
+                }
+            ]
         },
         {
-          "trait": "Mental Resilience",
-          "description": "Mental resilience refers to the individual's ability to cope with stress and adversity."
+            "category": "Health and Lifestyle",
+            "traits": [
+                {
+                    "trait": "Physical Health",
+                    "description": "Physical health refers to the individual's overall physical well-being."
+                },
+                {
+                    "trait": "Physical Abilities",
+                    "description": "Physical abilities refer to the individual's bodily capabilities and overall fitness level, including strength, endurance, and flexibility."
+                },
+                {
+                    "trait": "Irresponsibility",
+                    "description": "Irresponsibility refers to a lack of accountability or care in one's actions."
+                },
+                {
+                    "trait": "Mental Health",
+                    "description": "Mental health refers to the individual's overall mental well-being."
+                },
+                {
+                    "trait": "Maliciousness",
+                    "description": "Maliciousness refers to the desire to cause harm or suffering to others."
+                },
+                {
+                    "trait": "Environmental Consciousness",
+                    "description": "Environmental consciousness refers to the individual's awareness and concern for environmental issues."
+                },
+                {
+                    "trait": "Nutritional Habits",
+                    "description": "Nutritional habits refer to the individual's diet and eating behaviors."
+                },
+                {
+                    "trait": "Narrow-Mindedness",
+                    "description": "Narrow-mindedness refers to a lack of willingness to consider alternative ideas or perspectives."
+                },
+                {
+                    "trait": "Sleep Habits",
+                    "description": "Sleep habits refer to the individual's patterns and quality of sleep."
+                },
+                {
+                    "trait": "Overbearingness",
+                    "description": "Overbearingness refers to an overly assertive or domineering manner."
+                },
+                {
+                    "trait": "Stress Management",
+                    "description": "Stress management refers to the individual's ability to handle stress effectively."
+                },
+                {
+                    "trait": "Pretentiousness",
+                    "description": "Pretentiousness refers to attempting to impress by affecting greater importance or merit than is actually possessed."
+                },
+                {
+                    "trait": "Personal Hygiene",
+                    "description": "Personal hygiene refers to the individual's habits and practices related to cleanliness and grooming."
+                }
+            ]
         },
         {
-          "trait": "Laziness",
-          "description": "Laziness refers to a lack of willingness to exert effort or work."
+            "category": "Cultural and Intellectual Engagement",
+            "traits": [
+                {
+                    "trait": "Educational Level",
+                    "description": "Educational level refers to the individual's highest level of formal education."
+                },
+                {
+                    "trait": "Stubbornness",
+                    "description": "Stubbornness refers to a determination to not change one's attitude or position on something."
+                },
+                {
+                    "trait": "Language Skills",
+                    "description": "Language skills refer to the individual's ability to communicate effectively in one or more languages."
+                },
+                {
+                    "trait": "Indecisiveness",
+                    "description": "Indecisiveness refers to the inability to make decisions quickly and effectively."
+                },
+                {
+                    "trait": "Technological Aptitude",
+                    "description": "Technological aptitude refers to the individual's ability to understand and use technology effectively."
+                },
+                {
+                    "trait": "Pessimism",
+                    "description": "Pessimism refers to a tendency to see the worst aspect of things or believe the worst will happen."
+                },
+                {
+                    "trait": "Reading Habits",
+                    "description": "Reading habits refer to the individual's regular practices related to reading."
+                },
+                {
+                    "trait": "Apathy",
+                    "description": "Apathy refers to a lack of interest, enthusiasm, or concern."
+                },
+                {
+                    "trait": "Interest in Current Events",
+                    "description": "Interest in current events refers to the individual's engagement with and knowledge of recent news and happenings."
+                },
+                {
+                    "trait": "Judgmental",
+                    "description": "Judgmental refers to a tendency to make quick and critical judgments about others."
+                },
+                {
+                    "trait": "Participation in Cultural Activities",
+                    "description": "Participation in cultural activities refers to the individual's involvement in events and practices related to arts, heritage, and culture."
+                },
+                {
+                    "trait": "Artistic Ability",
+                    "description": "Artistic ability refers to the individual's capacity to express themselves creatively through various art forms, create original works, and appreciate artistic expression in its many forms."
+                }
+            ]
         },
         {
-          "trait": "Creativity",
-          "description": "Creativity refers to the individual's ability to think outside the box and generate novel ideas."
+            "category": "Family and Social Relations",
+            "traits": [
+                {
+                    "trait": "Parental Harmony",
+                    "description": "Parental harmony refers to the positive and cooperative relationship between the individual's parents."
+                },
+                {
+                    "trait": "Social Network Size",
+                    "description": "Social network size refers to the number of meaningful social connections the individual has."
+                },
+                {
+                    "trait": "Social Ties Depth",
+                    "description": "Social ties depth refers to the meaningful and deep connections the individual has with others."
+                },
+                {
+                    "trait": "Relationship with Siblings",
+                    "description": "Relationship with siblings refers to the quality of the individual's relationship with their brothers and/or sisters."
+                },
+                {
+                    "trait": "Involvement in Community Service",
+                    "description": "Involvement in community service refers to the individual's participation in activities aimed at helping and improving their community."
+                }
+            ]
         },
         {
-          "trait": "Impulsiveness",
-          "description": "Impulsiveness refers to acting on whims without considering the consequences."
+            "category": "Practical Skills",
+            "traits": [
+                {
+                    "trait": "Culinary Skills and Enjoyment",
+                    "description": "Culinary skills and enjoyment refer to the individual's ability and pleasure in cooking and food preparation."
+                },
+                {
+                    "trait": "Irresponsibility in Practical Skills",
+                    "description": "Irresponsibility in practical skills refers to a lack of reliability and care in performing practical tasks."
+                },
+                {
+                    "trait": "Economic Management",
+                    "description": "Economic management refers to the individual's ability to manage their finances effectively."
+                },
+                {
+                    "trait": "Untidiness",
+                    "description": "Untidiness refers to a lack of order and cleanliness in one's surroundings."
+                },
+                {
+                    "trait": "Punctuality",
+                    "description": "Punctuality refers to the individual's ability to be on time for appointments and deadlines."
+                },
+                {
+                    "trait": "Neglecting Home Maintenance",
+                    "description": "Neglecting home maintenance refers to a lack of attention to the upkeep and repair of one's living space."
+                },
+                {
+                    "trait": "Tidiness",
+                    "description": "Tidiness refers to the individual's habit of keeping their environment neat and orderly."
+                },
+                {
+                    "trait": "Disorganization",
+                    "description": "Disorganization refers to a lack of structure and order in managing tasks and responsibilities."
+                },
+                {
+                    "trait": "Home Maintenance Skills",
+                    "description": "Home maintenance skills refer to the individual's ability to perform repairs and upkeep on their home."
+                },
+                {
+                    "trait": "Problem-Solving Skills",
+                    "description": "Problem-solving skills refer to the individual's ability to find solutions to challenges and issues."
+                },
+                {
+                    "trait": "Organizational Skills",
+                    "description": "Organizational skills refer to the individual's ability to arrange and manage tasks and resources efficiently."
+                },
+                {
+                    "trait": "Time Management",
+                    "description": "Time management refers to the individual's ability to use their time effectively and productively."
+                },
+                {
+                    "trait": "Leadership Skills",
+                    "description": "Leadership skills refer to the individual's ability to guide and influence others."
+                },
+                {
+                    "trait": "Emotional Stability",
+                    "description": "Emotional stability refers to the individual's ability to maintain a balanced and stable mood."
+                },
+                {
+                    "trait": "Work Ethic",
+                    "description": "Work ethic refers to the individual's dedication and commitment to their work."
+                },
+                {
+                    "trait": "Initiative",
+                    "description": "Initiative refers to the individual's ability to start tasks and take action independently."
+                },
+                {
+                    "trait": "Analytical Thinking",
+                    "description": "Analytical thinking refers to the individual's ability to systematically and logically analyze problems."
+                },
+                {
+                    "trait": "Critical Thinking",
+                    "description": "Critical thinking refers to the individual's ability to evaluate information and arguments objectively."
+                },
+                {
+                    "trait": "Decision-Making Ability",
+                    "description": "Decision-making ability refers to the individual's capacity to make choices and determine a course of action."
+                },
+                {
+                    "trait": "Poor Decision-Making Ability",
+                    "description": "Poor decision-making ability refers to difficulty in making choices and determining a course of action."
+                },
+                {
+                    "trait": "Negotiation Skills",
+                    "description": "Negotiation skills refer to the individual's ability to reach agreements and resolve conflicts through discussion."
+                },
+                {
+                    "trait": "Public Speaking",
+                    "description": "Public speaking refers to the individual's ability to effectively communicate to an audience."
+                },
+                {
+                    "trait": "Cultural Awareness",
+                    "description": "Cultural awareness refers to the individual's understanding and appreciation of different cultures."
+                },
+                {
+                    "trait": "Multitasking Ability",
+                    "description": "Multitasking ability refers to the individual's capability to handle multiple tasks simultaneously."
+                },
+                {
+                    "trait": "Attention to Detail",
+                    "description": "Attention to detail refers to the individual's ability to notice and consider small and precise aspects of tasks."
+                },
+                {
+                    "trait": "Financial Literacy",
+                    "description": "Financial literacy refers to the individual's understanding of financial principles and ability to manage finances."
+                },
+                {
+                    "trait": "Project Management",
+                    "description": "Project management refers to the individual's ability to plan, execute, and oversee projects effectively."
+                },
+                {
+                    "trait": "Customer Service Orientation",
+                    "description": "Customer service orientation refers to the individual's ability to provide excellent service and support to customers."
+                },
+                {
+                    "trait": "Flexibility in Changing Environments",
+                    "description": "Flexibility in changing environments refers to the individual's ability to adapt to new and different conditions."
+                },
+                {
+                    "trait": "Goal-Setting Ability",
+                    "description": "Goal-setting ability refers to the individual's capacity to establish and work towards objectives."
+                },
+                {
+                    "trait": "Ethical Behavior",
+                    "description": "Ethical behavior refers to the individual's commitment to doing what is morally right and just."
+                },
+                {
+                    "trait": "Influence and Persuasion Skills",
+                    "description": "Influence and persuasion skills refer to the individual's ability to sway others' opinions and decisions."
+                }
+            ]
         },
         {
-          "trait": "Life Ambitions",
-          "description": "Life ambitions refer to the individual's long-term goals and aspirations."
+            "category": "Shared Interests",
+            "traits": [
+                {
+                    "trait": "Hobbies Engagement",
+                    "description": "Hobbies engagement refers to the individual's involvement in and enjoyment of various hobbies."
+                },
+                {
+                    "trait": "Interest in Music",
+                    "description": "Interest in music refers to the individual's enjoyment and appreciation of music."
+                },
+                {
+                    "trait": "Interest in Sports",
+                    "description": "Interest in sports refers to the individual's enjoyment and participation in sports activities."
+                },
+                {
+                    "trait": "Interest in Travel",
+                    "description": "Interest in travel refers to the individual's enjoyment and desire to explore different places."
+                }
+            ]
         },
         {
-          "trait": "Vindictiveness",
-          "description": "Vindictiveness refers to a desire for revenge or to cause harm to others."
-        },
-        {
-          "trait": "Humility",
-          "description": "Humility refers to a modest view of one's own importance."
-        },
-        {
-          "trait": "Selfishness",
-          "description": "Selfishness refers to prioritizing one's own needs and desires over those of others."
-        },
-        {
-          "trait": "Generosity",
-          "description": "Generosity refers to the willingness to give and share with others."
-        },
-        {
-          "trait": "Greed",
-          "description": "Greed refers to an excessive desire for wealth or possessions."
-        },
-        {
-          "trait": "Optimism",
-          "description": "Optimism refers to a hopeful and positive outlook on life."
-        },
-        {
-          "trait": "Intolerance",
-          "description": "Intolerance refers to an unwillingness to accept views, beliefs, or behavior that differ from one's own."
-        },
-        {
-          "trait": "Intellectual Curiosity",
-          "description": "Intellectual curiosity refers to a strong desire to learn and understand."
-        },
-        {
-          "trait": "Jealousy",
-          "description": "Jealousy refers to feelings of envy towards others' achievements or possessions."
-        },
-        {
-          "trait": "Self-Reliance",
-          "description": "Self-reliance refers to the individual's ability to depend on themselves."
-        },
-        {
-          "trait": "Rudeness",
-          "description": "Rudeness refers to discourteous or impolite behavior."
-        },
-        {
-          "trait": "Integrity",
-          "description": "Integrity refers to the individual's adherence to moral and ethical principles."
-        },
-        {
-          "trait": "Inflexibility",
-          "description": "Inflexibility refers to a reluctance to adapt or change."
-        },
-        {
-          "trait": "Adaptability",
-          "description": "Adaptability refers to the individual's ability to adjust to new conditions."
-        },
-        {
-          "trait": "Manipulativeness",
-          "description": "Manipulativeness refers to controlling others for personal gain."
-        },
-        {
-          "trait": "Courage",
-          "description": "Courage refers to the individual's ability to face danger or adversity with bravery."
-        },
-        {
-          "trait": "Cowardice",
-          "description": "Cowardice refers to a lack of bravery or a tendency to avoid danger or difficulties."
-        },
-        {
-          "trait": "Dependability",
-          "description": "Dependability refers to the individual's reliability and trustworthiness."
-        },
-        {
-          "trait": "Dishonesty",
-          "description": "Dishonesty refers to a tendency to deceive or lie."
-        },
-        {
-          "trait": "Honesty",
-          "description": "Honesty refers to the individual's commitment to truthfulness."
-        },
-        {
-          "trait": "Hypocrisy",
-          "description": "Hypocrisy refers to pretending to have beliefs or virtues that one does not actually possess."
-        },
-        {
-          "trait": "Compassion",
-          "description": "Compassion refers to the individual's ability to empathize and care for others."
-        },
-        {
-          "trait": "Paranoia",
-          "description": "Paranoia refers to excessive or irrational suspicion and mistrust of others."
-        },
-        {
-          "trait": "Loyalty",
-          "description": "Loyalty refers to the individual's faithfulness and allegiance."
-        },
-        {
-          "trait": "Obnoxiousness",
-          "description": "Obnoxiousness refers to offensive and unpleasant behavior."
-        },
-        {
-          "trait": "Self-Discipline",
-          "description": "Self-discipline refers to the individual's ability to control their behavior and impulses."
-        },
-        {
-          "trait": "Aggressiveness",
-          "description": "Aggressiveness refers to hostile or violent behavior."
-        },
-        {
-          "trait": "Assertiveness",
-          "description": "Assertiveness refers to the individual's ability to confidently express themselves."
-        },
-        {
-          "trait": "Narcissism",
-          "description": "Narcissism refers to excessive self-love and a lack of empathy for others."
-        },
-        {
-          "trait": "Gratitude",
-          "description": "Gratitude refers to the individual's appreciation and thankfulness."
-        },
-        {
-          "trait": "Resentment",
-          "description": "Resentment refers to bitter indignation at having been treated unfairly."
-        },
-        {
-          "trait": "Cultural Intelligence",
-          "description": "Cultural intelligence refers to the capability to relate and work effectively across cultures."
-        },
-        {
-          "trait": "Digital Literacy",
-          "description": "Digital literacy refers to proficiency in using digital technologies and navigating online environments."
-        },
-        {
-          "trait": "Mindfulness",
-          "description": "Mindfulness refers to the practice of being aware and fully present in the moment."
-        },
-        {
-          "trait": "Entrepreneurial Spirit",
-          "description": "Entrepreneurial spirit refers to the inclination to start and manage new ventures or projects."
-        },
-        {
-          "trait": "Sustainability Awareness",
-          "description": "Sustainability awareness refers to understanding and commitment to sustainable practices."
-        },
-        {
-          "trait": "Growth Mindset",
-          "description": "Growth mindset refers to the belief that abilities and intelligence can be developed through effort and learning."
-        },
-        {
-          "trait": "Adaptability to Technology",
-          "description": "Adaptability to technology refers to the ability to keep up with and utilize new technological advancements."
-        },
-        {
-          "trait": "Work-Life Balance Management",
-          "description": "Work-life balance management refers to the skill in maintaining a healthy balance between professional and personal life."
-        },
-        {
-          "trait": "Emotional Regulation",
-          "description": "Emotional regulation refers to the ability to manage and respond to an emotional experience."
-        },
-        {
-          "trait": "Grit",
-          "description": "Grit refers to perseverance and passion for long-term goals."
-        },
-        {
-          "trait": "Self-Advocacy",
-          "description": "Self-advocacy refers to the ability to speak up for oneself and one's needs."
-        },
-        {
-          "trait": "Networking Skills",
-          "description": "Networking skills refer to the ability to build and maintain professional relationships."
-        },
-        {
-          "trait": "Global Awareness",
-          "description": "Global awareness refers to understanding of global issues and cultures."
+            "category": "Physical Appearance",
+            "traits": [
+                {
+                    "trait": "Conventional Attractiveness",
+                    "description": "Conventional attractiveness refers to the individual's physical appeal based on societal standards."
+                },
+                {
+                    "trait": "Physical Form",
+                    "description": "Physical form refers to the individual's body shape and physical condition."
+                },
+                {
+                    "trait": "Grooming Habits",
+                    "description": "Grooming habits refer to the individual's practices related to personal cleanliness and appearance."
+                },
+                {
+                    "trait": "Personal Style",
+                    "description": "Personal style refers to the individual's manner of dressing and presenting themselves."
+                }
+            ]
         }
-      ]
-    },
-    {
-      "category": "Emotional and Social Skills",
-      "traits": [
-        {
-          "trait": "Empathy",
-          "description": "Empathy refers to the individual's ability to understand and share the feelings of others."
-        },
-        {
-          "trait": "Hostility",
-          "description": "Hostility refers to antagonistic or unfriendly behavior."
-        },
-        {
-          "trait": "Active Listening",
-          "description": "Active listening refers to the individual's ability to fully concentrate, understand, and respond to others."
-        },
-        {
-          "trait": "Impatience",
-          "description": "Impatience refers to a lack of tolerance for delay or annoyance."
-        },
-        {
-          "trait": "Social Competence",
-          "description": "Social competence refers to the individual's ability to interact effectively with others."
-        },
-        {
-          "trait": "Overcritical",
-          "description": "Overcritical refers to a tendency to judge others too harshly."
-        },
-        {
-          "trait": "Social Confidence",
-          "description": "Social confidence refers to the individual's self-assurance in social situations."
-        },
-        {
-          "trait": "Suspiciousness",
-          "description": "Suspiciousness refers to a tendency to distrust others."
-        },
-        {
-          "trait": "Conflict Resolution",
-          "description": "Conflict resolution refers to the individual's ability to resolve disagreements peacefully."
-        },
-        {
-          "trait": "Volatility",
-          "description": "Volatility refers to unpredictable and explosive behavior."
-        },
-        {
-          "trait": "Patience",
-          "description": "Patience refers to the individual's ability to wait calmly."
-        },
-        {
-          "trait": "Unforgiving",
-          "description": "Unforgiving refers to a reluctance to forgive or let go of grudges."
-        },
-        {
-          "trait": "Sense of Humor",
-          "description": "Sense of humor refers to the individual's ability to find and express amusement."
-        },
-        {
-          "trait": "Aloofness",
-          "description": "Aloofness refers to a distant and detached demeanor."
-        },
-        {
-          "trait": "Kindness",
-          "description": "Kindness refers to the individual's friendly and considerate behavior."
-        },
-        {
-          "trait": "Bossiness",
-          "description": "Bossiness refers to a domineering and controlling manner."
-        },
-        {
-          "trait": "Forgiveness",
-          "description": "Forgiveness refers to the individual's ability to let go of resentment."
-        },
-        {
-          "trait": "Conceit",
-          "description": "Conceit refers to excessive pride in oneself."
-        },
-        {
-          "trait": "Supportiveness",
-          "description": "Supportiveness refers to the individual's ability to provide help and encouragement."
-        },
-        {
-          "trait": "Deceitfulness",
-          "description": "Deceitfulness refers to dishonest behavior."
-        },
-        {
-          "trait": "Respectfulness",
-          "description": "Respectfulness refers to the individual's regard for others' feelings and rights."
-        },
-        {
-          "trait": "Desperation",
-          "description": "Desperation refers to a state of hopelessness leading to rash actions."
-        },
-        {
-          "trait": "Openness",
-          "description": "Openness refers to the individual's willingness to consider new ideas."
-        },
-        {
-          "trait": "Disobedience",
-          "description": "Disobedience refers to a refusal to follow rules or instructions."
-        },
-        {
-          "trait": "Adaptability in Social Settings",
-          "description": "Adaptability in social settings refers to the individual's ability to adjust behavior in different social contexts."
-        },
-        {
-          "trait": "Fanaticism",
-          "description": "Fanaticism refers to excessive and irrational zeal."
-        },
-        {
-          "trait": "Emotional Intelligence",
-          "description": "Emotional intelligence refers to the individual's ability to understand and manage their own and others' emotions."
-        },
-        {
-          "trait": "Grumpiness",
-          "description": "Grumpiness refers to a bad-tempered and irritable disposition."
-        },
-        {
-          "trait": "Teamwork",
-          "description": "Teamwork refers to the individual's ability to work effectively with others."
-        },
-        {
-          "trait": "Ingratitude",
-          "description": "Ingratitude refers to a lack of appreciation for help or kindness."
-        }
-      ]
-    },
-    {
-      "category": "Health and Lifestyle",
-      "traits": [
-        {
-          "trait": "Physical Health",
-          "description": "Physical health refers to the individual's overall physical well-being."
-        },
-        {
-          "trait": "Irresponsibility",
-          "description": "Irresponsibility refers to a lack of accountability or care in one's actions."
-        },
-        {
-          "trait": "Mental Health",
-          "description": "Mental health refers to the individual's overall mental well-being."
-        },
-        {
-          "trait": "Maliciousness",
-          "description": "Maliciousness refers to the desire to cause harm or suffering to others."
-        },
-        {
-          "trait": "Environmental Consciousness",
-          "description": "Environmental consciousness refers to the individual's awareness and concern for environmental issues."
-        },
-        {
-          "trait": "Nutritional Habits",
-          "description": "Nutritional habits refer to the individual's diet and eating behaviors."
-        },
-        {
-          "trait": "Narrow-Mindedness",
-          "description": "Narrow-mindedness refers to a lack of willingness to consider alternative ideas or perspectives."
-        },
-        {
-          "trait": "Sleep Habits",
-          "description": "Sleep habits refer to the individual's patterns and quality of sleep."
-        },
-        {
-          "trait": "Overbearingness",
-          "description": "Overbearingness refers to an overly assertive or domineering manner."
-        },
-        {
-          "trait": "Stress Management",
-          "description": "Stress management refers to the individual's ability to handle stress effectively."
-        },
-        {
-          "trait": "Pretentiousness",
-          "description": "Pretentiousness refers to attempting to impress by affecting greater importance or merit than is actually possessed."
-        },
-        {
-          "trait": "Personal Hygiene",
-          "description": "Personal hygiene refers to the individual's habits and practices related to cleanliness and grooming."
-        }
-      ]
-    },
-    {
-      "category": "Cultural and Intellectual Engagement",
-      "traits": [
-        {
-          "trait": "Educational Level",
-          "description": "Educational level refers to the individual's highest level of formal education."
-        },
-        {
-          "trait": "Stubbornness",
-          "description": "Stubbornness refers to a determination to not change one's attitude or position on something."
-        },
-        {
-          "trait": "Language Skills",
-          "description": "Language skills refer to the individual's ability to communicate effectively in one or more languages."
-        },
-        {
-          "trait": "Indecisiveness",
-          "description": "Indecisiveness refers to the inability to make decisions quickly and effectively."
-        },
-        {
-          "trait": "Technological Aptitude",
-          "description": "Technological aptitude refers to the individual's ability to understand and use technology effectively."
-        },
-        {
-          "trait": "Pessimism",
-          "description": "Pessimism refers to a tendency to see the worst aspect of things or believe the worst will happen."
-        },
-        {
-          "trait": "Reading Habits",
-          "description": "Reading habits refer to the individual's regular practices related to reading."
-        },
-        {
-          "trait": "Apathy",
-          "description": "Apathy refers to a lack of interest, enthusiasm, or concern."
-        },
-        {
-          "trait": "Interest in Current Events",
-          "description": "Interest in current events refers to the individual's engagement with and knowledge of recent news and happenings."
-        },
-        {
-          "trait": "Judgmental",
-          "description": "Judgmental refers to a tendency to make quick and critical judgments about others."
-        },
-        {
-          "trait": "Participation in Cultural Activities",
-          "description": "Participation in cultural activities refers to the individual's involvement in events and practices related to arts, heritage, and culture."
-        }
-      ]
-    },
-    {
-      "category": "Family and Social Relations",
-      "traits": [
-        {
-          "trait": "Parental Harmony",
-          "description": "Parental harmony refers to the positive and cooperative relationship between the individual's parents."
-        },
-        {
-          "trait": "Social Network Size",
-          "description": "Social network size refers to the number of meaningful social connections the individual has."
-        },
-        {
-          "trait": "Social Ties Depth",
-          "description": "Social ties depth refers to the meaningful and deep connections the individual has with others."
-        },
-        {
-          "trait": "Relationship with Siblings",
-          "description": "Relationship with siblings refers to the quality of the individual's relationship with their brothers and/or sisters."
-        },
-        {
-          "trait": "Involvement in Community Service",
-          "description": "Involvement in community service refers to the individual's participation in activities aimed at helping and improving their community."
-        }
-      ]
-    },
-    {
-      "category": "Practical Skills",
-      "traits": [
-        {
-          "trait": "Culinary Skills and Enjoyment",
-          "description": "Culinary skills and enjoyment refer to the individual's ability and pleasure in cooking and food preparation."
-        },
-        {
-          "trait": "Irresponsibility in Practical Skills",
-          "description": "Irresponsibility in practical skills refers to a lack of reliability and care in performing practical tasks."
-        },
-        {
-          "trait": "Economic Management",
-          "description": "Economic management refers to the individual's ability to manage their finances effectively."
-        },
-        {
-          "trait": "Untidiness",
-          "description": "Untidiness refers to a lack of order and cleanliness in one's surroundings."
-        },
-        {
-          "trait": "Punctuality",
-          "description": "Punctuality refers to the individual's ability to be on time for appointments and deadlines."
-        },
-        {
-          "trait": "Neglecting Home Maintenance",
-          "description": "Neglecting home maintenance refers to a lack of attention to the upkeep and repair of one's living space."
-        },
-        {
-          "trait": "Tidiness",
-          "description": "Tidiness refers to the individual's habit of keeping their environment neat and orderly."
-        },
-        {
-          "trait": "Disorganization",
-          "description": "Disorganization refers to a lack of structure and order in managing tasks and responsibilities."
-        },
-        {
-          "trait": "Home Maintenance Skills",
-          "description": "Home maintenance skills refer to the individual's ability to perform repairs and upkeep on their home."
-        },
-        {
-          "trait": "Problem-Solving Skills",
-          "description": "Problem-solving skills refer to the individual's ability to find solutions to challenges and issues."
-        },
-        {
-          "trait": "Organizational Skills",
-          "description": "Organizational skills refer to the individual's ability to arrange and manage tasks and resources efficiently."
-        },
-        {
-          "trait": "Time Management",
-          "description": "Time management refers to the individual's ability to use their time effectively and productively."
-        },
-        {
-          "trait": "Leadership Skills",
-          "description": "Leadership skills refer to the individual's ability to guide and influence others."
-        },
-        {
-          "trait": "Emotional Stability",
-          "description": "Emotional stability refers to the individual's ability to maintain a balanced and stable mood."
-        },
-        {
-          "trait": "Work Ethic",
-          "description": "Work ethic refers to the individual's dedication and commitment to their work."
-        },
-        {
-          "trait": "Initiative",
-          "description": "Initiative refers to the individual's ability to start tasks and take action independently."
-        },
-        {
-          "trait": "Analytical Thinking",
-          "description": "Analytical thinking refers to the individual's ability to systematically and logically analyze problems."
-        },
-        {
-          "trait": "Critical Thinking",
-          "description": "Critical thinking refers to the individual's ability to evaluate information and arguments objectively."
-        },
-        {
-          "trait": "Decision-Making Ability",
-          "description": "Decision-making ability refers to the individual's capacity to make choices and determine a course of action."
-        },
-        {
-          "trait": "Poor Decision-Making Ability",
-          "description": "Poor decision-making ability refers to difficulty in making choices and determining a course of action."
-        },
-        {
-          "trait": "Negotiation Skills",
-          "description": "Negotiation skills refer to the individual's ability to reach agreements and resolve conflicts through discussion."
-        },
-        {
-          "trait": "Public Speaking",
-          "description": "Public speaking refers to the individual's ability to effectively communicate to an audience."
-        },
-        {
-          "trait": "Cultural Awareness",
-          "description": "Cultural awareness refers to the individual's understanding and appreciation of different cultures."
-        },
-        {
-          "trait": "Multitasking Ability",
-          "description": "Multitasking ability refers to the individual's capability to handle multiple tasks simultaneously."
-        },
-        {
-          "trait": "Attention to Detail",
-          "description": "Attention to detail refers to the individual's ability to notice and consider small and precise aspects of tasks."
-        },
-        {
-          "trait": "Financial Literacy",
-          "description": "Financial literacy refers to the individual's understanding of financial principles and ability to manage finances."
-        },
-        {
-          "trait": "Project Management",
-          "description": "Project management refers to the individual's ability to plan, execute, and oversee projects effectively."
-        },
-        {
-          "trait": "Customer Service Orientation",
-          "description": "Customer service orientation refers to the individual's ability to provide excellent service and support to customers."
-        },
-        {
-          "trait": "Flexibility in Changing Environments",
-          "description": "Flexibility in changing environments refers to the individual's ability to adapt to new and different conditions."
-        },
-        {
-          "trait": "Goal-Setting Ability",
-          "description": "Goal-setting ability refers to the individual's capacity to establish and work towards objectives."
-        },
-        {
-          "trait": "Ethical Behavior",
-          "description": "Ethical behavior refers to the individual's commitment to doing what is morally right and just."
-        },
-        {
-          "trait": "Influence and Persuasion Skills",
-          "description": "Influence and persuasion skills refer to the individual's ability to sway others' opinions and decisions."
-        }
-      ]
-    },
-    {
-      "category": "Shared Interests",
-      "traits": [
-        {
-          "trait": "Hobbies Engagement",
-          "description": "Hobbies engagement refers to the individual's involvement in and enjoyment of various hobbies."
-        },
-        {
-          "trait": "Interest in Music",
-          "description": "Interest in music refers to the individual's enjoyment and appreciation of music."
-        },
-        {
-          "trait": "Interest in Sports",
-          "description": "Interest in sports refers to the individual's enjoyment and participation in sports activities."
-        },
-        {
-          "trait": "Interest in Travel",
-          "description": "Interest in travel refers to the individual's enjoyment and desire to explore different places."
-        }
-      ]
-    },
-    {
-      "category": "Physical Appearance",
-      "traits": [
-        {
-          "trait": "Conventional Attractiveness",
-          "description": "Conventional attractiveness refers to the individual's physical appeal based on societal standards."
-        },
-        {
-          "trait": "Physical Form",
-          "description": "Physical form refers to the individual's body shape and physical condition."
-        },
-        {
-          "trait": "Grooming Habits",
-          "description": "Grooming habits refer to the individual's practices related to personal cleanliness and appearance."
-        },
-        {
-          "trait": "Personal Style",
-          "description": "Personal style refers to the individual's manner of dressing and presenting themselves."
-        }
-      ]
-    }
-  ]
+    ]
 }
