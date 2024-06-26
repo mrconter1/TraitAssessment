@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
   
   try {
     // Log database connection info
-    const dbInfo = await client.query(q.Get(q.Database('this')));
+    const dbInfo = await client.query(q.Get(q.Database('TraitAssessment')));
     console.log('Connected to database:', dbInfo.name);
 
     // Log all collections
