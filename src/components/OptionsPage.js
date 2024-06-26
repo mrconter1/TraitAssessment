@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { UserCircleIcon, ClipboardIcon, CheckIcon } from '@heroicons/react/24/solid';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { UserCircleIcon, ClipboardIcon, CheckIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/solid';
+import Cookies from 'js-cookie';
 
 function OptionsPage() {
   const { personalId } = useParams();
   const [surveyId, setSurveyId] = useState('');
   const [copied, setCopied] = useState(false);
   const linkInputRef = useRef(null);
+  const navigate = useNavigate();
 
   const generateSurveyLink = () => {
     const newSurveyId = Array(10).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
@@ -21,15 +23,21 @@ function OptionsPage() {
     localStorage.setItem('surveys', JSON.stringify(surveys));
   };
 
-  const copyToClipboard = () => {
-    linkInputRef.current.select();
-    document.execCommand('copy');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
+  const copyToClipboard = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(linkInputRef.current.value).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    });
+  };
+
+  const handleLogout = () => {
+    Cookies.remove('personalId');
+    navigate('/');
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center px-4">
       <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-2">Welcome!</h1>
@@ -49,7 +57,7 @@ function OptionsPage() {
           {surveyId && (
             <div className="text-center">
               <p className="text-sm text-gray-400 mb-2">Survey Link:</p>
-              <div className="flex items-center">
+              <div className="flex items-stretch">
                 <input
                   ref={linkInputRef}
                   type="text"
@@ -59,7 +67,7 @@ function OptionsPage() {
                 />
                 <button
                   onClick={copyToClipboard}
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-r focus:outline-none transition duration-150 ease-in-out"
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-3 rounded-r focus:outline-none transition duration-150 ease-in-out flex items-center justify-center"
                 >
                   {copied ? (
                     <CheckIcon className="h-5 w-5" />
@@ -79,6 +87,13 @@ function OptionsPage() {
           >
             View Survey Results
           </Link>
+          <button 
+            onClick={handleLogout}
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out flex items-center justify-center"
+          >
+            <ArrowLeftOnRectangleIcon className="h-5 w-5 mr-2" />
+            Logout
+          </button>
         </div>
       </div>
     </div>
