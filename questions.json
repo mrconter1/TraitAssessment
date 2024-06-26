@@ -163,6 +163,58 @@
         {
           "trait": "Resentment",
           "description": "Resentment refers to bitter indignation at having been treated unfairly."
+        },
+        {
+          "trait": "Cultural Intelligence",
+          "description": "Cultural intelligence refers to the capability to relate and work effectively across cultures."
+        },
+        {
+          "trait": "Digital Literacy",
+          "description": "Digital literacy refers to proficiency in using digital technologies and navigating online environments."
+        },
+        {
+          "trait": "Mindfulness",
+          "description": "Mindfulness refers to the practice of being aware and fully present in the moment."
+        },
+        {
+          "trait": "Entrepreneurial Spirit",
+          "description": "Entrepreneurial spirit refers to the inclination to start and manage new ventures or projects."
+        },
+        {
+          "trait": "Sustainability Awareness",
+          "description": "Sustainability awareness refers to understanding and commitment to sustainable practices."
+        },
+        {
+          "trait": "Growth Mindset",
+          "description": "Growth mindset refers to the belief that abilities and intelligence can be developed through effort and learning."
+        },
+        {
+          "trait": "Adaptability to Technology",
+          "description": "Adaptability to technology refers to the ability to keep up with and utilize new technological advancements."
+        },
+        {
+          "trait": "Work-Life Balance Management",
+          "description": "Work-life balance management refers to the skill in maintaining a healthy balance between professional and personal life."
+        },
+        {
+          "trait": "Emotional Regulation",
+          "description": "Emotional regulation refers to the ability to manage and respond to an emotional experience."
+        },
+        {
+          "trait": "Grit",
+          "description": "Grit refers to perseverance and passion for long-term goals."
+        },
+        {
+          "trait": "Self-Advocacy",
+          "description": "Self-advocacy refers to the ability to speak up for oneself and one's needs."
+        },
+        {
+          "trait": "Networking Skills",
+          "description": "Networking skills refer to the ability to build and maintain professional relationships."
+        },
+        {
+          "trait": "Global Awareness",
+          "description": "Global awareness refers to understanding of global issues and cultures."
         }
       ]
     },
