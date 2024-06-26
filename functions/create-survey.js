@@ -39,6 +39,15 @@ exports.handler = async (event, context) => {
       )
     );
 
+    // Retrieve and log all existing entries
+    const existingEntries = await client.query(
+      q.Map(
+        q.Paginate(q.Documents(q.Collection('surveys'))),
+        q.Lambda('ref', q.Get(q.Var('ref')))
+      )
+    );
+    console.log('Existing entries:', JSON.stringify(existingEntries, null, 2));
+
     // Parse the incoming request body
     const { personalId, surveyId } = JSON.parse(event.body);
 
