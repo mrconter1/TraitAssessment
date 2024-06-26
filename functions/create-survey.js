@@ -10,13 +10,9 @@ exports.handler = async (event, context) => {
     };
   }
   
-  const client = new faunadb.Client({ secret: secretKey });
+  console.log('Secret key is set:', !!secretKey);
   
   try {
-
-    const dbInfo = await client.query(q.Get(q.CurrentDatabase()));
-    console.log('Connected to database:', dbInfo.name);
-
     const result = await client.query(
       q.If(
         q.Exists(q.Collection('surveys1')),
