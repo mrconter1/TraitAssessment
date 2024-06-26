@@ -13,13 +13,28 @@ exports.handler = async (event, context) => {
   const client = new faunadb.Client({ secret: secretKey });
   
   try {
+    // Log database connection info
+    const dbInfo = await client.query(q.Get(q.Database('this')));
+    console.log('Connected to database:', dbInfo.name);
+
     // Log all collections
     const collections = await client.query(q.Paginate(q.Collections()));
     console.log('Collections:', collections.data);
 
-    // Attempt to get the 'surveys' collection
-    const surveysCollection = await client.query(q.Exists(q.Collection('surveys')));
-    console.log('Surveys collection exists:', surveysCollection);
+    // Check if 'surveys' collection exists, if not, create it
+    let surveysCollection;
+    try {
+      surveysCollection = await client.query(q.Get(q.Collection('surveys')));
+      console.log('Surveys collection exists');
+    } catch (error) {
+      if (error.requestResult.statusCode === 404) {
+        console.log('Surveys collection does not exist. Creating it...');
+        surveysCollection = await client.query(q.CreateCollection({ name: 'surveys' }));
+        console.log('Surveys collection created');
+      } else {
+        throw error;
+      }
+    }
 
     const { personalId, surveyId } = JSON.parse(event.body);
     const result = await client.query(
