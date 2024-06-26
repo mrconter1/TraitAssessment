@@ -10,9 +10,19 @@ exports.handler = async (event, context) => {
     };
   }
   
-  const client = new faunadb.Client({ secret: secretKey });
+  const client = new faunadb.Client({ 
+    secret: secretKey,
+    domain: 'db.fauna.com',
+    scheme: 'https',
+    port: 443,
+    database: 'TraitAssessment'
+  });
   
   try {
+    // Verify we're connected to the correct database
+    const dbName = await client.query(q.Select('name', q.CurrentDatabase()));
+    console.log('Connected to database:', dbName);
+
     // Ensure 'surveys' collection exists
     await client.query(
       q.If(
@@ -28,11 +38,35 @@ exports.handler = async (event, context) => {
     const result = await client.query(
       q.Create(
         q.Collection('surveys'),
-        { data: { personalId, surveyId, createdAt: q.Now() } }
+        { 
+          data: { 
+            personalId, 
+            surveyId, 
+            createdAt: q.Now() 
+          }
+        }
       )
     );
 
     console.log('Survey created:', result);
+
+    // Create an index for querying surveys by personalId and surveyId
+    await client.query(
+      q.If(
+        q.Exists(q.Index('surveys_by_personal_and_survey_id')),
+        true,
+        q.CreateIndex({
+          name: 'surveys_by_personal_and_survey_id',
+          source: q.Collection('surveys'),
+          terms: [
+            { field: ['data', 'personalId'] },
+            { field: ['data', 'surveyId'] }
+          ],
+          unique: true
+        })
+      )
+    );
+    console.log('Index created or already exists');
 
     return {
       statusCode: 200,
