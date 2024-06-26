@@ -1,7 +1,7 @@
 const faunadb = require('faunadb');
 const q = faunadb.query;
 
-const secretKey = process.env.FAUNADB_SERVER_SECRET;
+const secretKey = process.env.DB_KEY;
 if (!secretKey) {
     console.error("Error: FAUNADB_SERVER_SECRET environment variable is not set.");
     process.exit(1);
