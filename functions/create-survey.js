@@ -13,47 +13,20 @@ exports.handler = async (event, context) => {
   const client = new faunadb.Client({ secret: secretKey });
   
   try {
-    // Log database connection info
-    const dbInfo = await client.query(q.Get(q.Database('TraitAssessment')));
-    console.log('Connected to database:', dbInfo.name);
+    // Attempt a simple query to check connection
+    const result = await client.query(q.Now());
+    console.log('Successfully connected to FaunaDB. Current time:', result);
 
-    // Log all collections
-    const collections = await client.query(q.Paginate(q.Collections()));
-    console.log('Collections:', collections.data);
-
-    // Check if 'surveys' collection exists, if not, create it
-    let surveysCollection;
-    try {
-      surveysCollection = await client.query(q.Get(q.Collection('surveys')));
-      console.log('Surveys collection exists');
-    } catch (error) {
-      if (error.requestResult.statusCode === 404) {
-        console.log('Surveys collection does not exist. Creating it...');
-        surveysCollection = await client.query(q.CreateCollection({ name: 'surveys' }));
-        console.log('Surveys collection created');
-      } else {
-        throw error;
-      }
-    }
-
-    const { personalId, surveyId } = JSON.parse(event.body);
-    const result = await client.query(
-      q.Create(
-        q.Collection('surveys'),
-        { data: { personalId, surveyId } }
-      )
-    );
-    
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: "Survey created successfully", id: result.ref.id })
+      body: JSON.stringify({ message: "Successfully connected to FaunaDB", time: result })
     };
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error connecting to FaunaDB:', error);
     return {
       statusCode: 500,
       body: JSON.stringify({ 
-        error: "Failed to create survey", 
+        error: "Failed to connect to FaunaDB", 
         details: error.description,
         code: error.requestResult?.statusCode,
         errors: error.requestResult?.responseContent?.errors
