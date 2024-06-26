@@ -20,8 +20,6 @@ exports.handler = async (event, context) => {
 
   const client = new faunadb.Client({
     secret: secretKey,
-    domain: 'db.fauna.com',
-    scheme: 'https',
     // Optional: keepAlive: false, // disable keep-alive to force HTTP/1.1
   });
 
@@ -30,7 +28,7 @@ exports.handler = async (event, context) => {
 
     const result = await client.query(
       q.Create(
-        q.Collection('surveys'),
+        q.Collection('surveys'), // Ensure correct reference to the collection
         { data: { personalId, surveyId } }
       )
     );
