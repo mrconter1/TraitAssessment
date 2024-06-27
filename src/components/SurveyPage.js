@@ -9,25 +9,39 @@ function SurveyPage() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const response = await fetch('/.netlify/functions/get-questions');
+        const response = await fetch('/.netlify/functions/get-questions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ survey_id: surveyId }),
+        });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
         console.log('Fetched Questions Data:', data); // Log data for debugging
         setQuestionsData(data);
+
+        // Initialize answers state with existing responses or default to "I prefer not to answer"
+        const initialAnswers = {};
+        data.questions.forEach((question) => {
+          const existingResponse = data.responses.find((res) => res.question_id === question.id);
+          initialAnswers[question.id] = existingResponse ? existingResponse.selection : 'prefer_not_to_answer';
+        });
+        setAnswers(initialAnswers);
       } catch (error) {
         console.error('Error fetching questions:', error);
       }
     };
 
     fetchQuestions();
-  }, []);
+  }, [surveyId]);
 
   const handleAnswer = async (traitId, value) => {
-    setAnswers(prev => ({
+    setAnswers((prev) => ({
       ...prev,
-      [traitId]: value
+      [traitId]: value,
     }));
 
     try {
@@ -69,27 +83,30 @@ function SurveyPage() {
               <h2 className="text-2xl font-bold mb-6 text-center">{category.name}</h2>
               <div className="space-y-8">
                 {questionsData.questions
-                  .filter(question => question.category_ref['@ref'].id === category.id) // Ensure correct reference comparison
+                  .filter((question) => question.category_ref['@ref'].id === category.id) // Ensure correct reference comparison
                   .map((trait) => (
                     <div key={trait.id} className="bg-gray-700 p-6 rounded-lg">
                       <h3 className="text-xl font-semibold mb-3">{trait.trait}</h3>
                       <p className="text-gray-300 mb-4">{trait.description}</p>
                       <div className="space-y-2">
                         {reversedAlternatives.map((alternative, altIndex) => (
-                          <label 
-                            key={altIndex} 
-                            className="flex items-center space-x-3 p-2 rounded hover:bg-gray-600 transition-colors duration-200 cursor-pointer"
-                          >
-                            <input
-                              type="radio"
-                              name={`trait-${trait.id}`}
-                              value={alternative.value}
-                              checked={answers[trait.id] === alternative.value}
-                              onChange={() => handleAnswer(trait.id, alternative.value)}
-                              className="form-radio h-5 w-5 text-blue-600 cursor-pointer"
-                            />
-                            <span className="text-sm sm:text-base flex-grow">{alternative.description}</span>
-                          </label>
+                          <React.Fragment key={altIndex}>
+                            {alternative.value === 'prefer_not_to_answer' && <hr className="my-2 border-gray-500" />}
+                            <label
+                              key={altIndex}
+                              className="flex items-center space-x-3 p-2 rounded hover:bg-gray-600 transition-colors duration-200 cursor-pointer"
+                            >
+                              <input
+                                type="radio"
+                                name={`trait-${trait.id}`}
+                                value={alternative.value}
+                                checked={answers[trait.id] === alternative.value}
+                                onChange={() => handleAnswer(trait.id, alternative.value)}
+                                className="form-radio h-5 w-5 text-blue-600 cursor-pointer"
+                              />
+                              <span className="text-sm sm:text-base flex-grow">{alternative.description}</span>
+                            </label>
+                          </React.Fragment>
                         ))}
                       </div>
                     </div>
