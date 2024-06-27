@@ -15,29 +15,29 @@ exports.handler = async (event, context) => {
   try {
     const categories = await client.query(
       q.Map(
-        q.Paginate(q.Match(q.Index('all_categories'))),
+        q.Paginate(q.Documents(q.Collection('Categories'))),
         q.Lambda('ref', q.Get(q.Var('ref')))
       )
     );
 
     const questions = await client.query(
       q.Map(
-        q.Paginate(q.Match(q.Index('all_questions'))),
+        q.Paginate(q.Documents(q.Collection('Questions'))),
         q.Lambda('ref', q.Get(q.Var('ref')))
       )
     );
 
     const standardizedAlternatives = await client.query(
       q.Map(
-        q.Paginate(q.Match(q.Index('all_standardized_alternatives'))),
+        q.Paginate(q.Documents(q.Collection('StandardizedAlternatives'))),
         q.Lambda('ref', q.Get(q.Var('ref')))
       )
     );
 
     const response = {
-      categories: categories.data.map(cat => cat.data),
-      questions: questions.data.map(q => q.data),
-      standardizedAlternatives: standardizedAlternatives.data.map(alt => alt.data)
+      categories: categories.data.map(cat => ({ id: cat.ref.id, ...cat.data })),
+      questions: questions.data.map(q => ({ id: q.ref.id, ...q.data })),
+      standardizedAlternatives: standardizedAlternatives.data.map(alt => ({ id: alt.ref.id, ...alt.data }))
     };
 
     return {

@@ -14,6 +14,7 @@ function SurveyPage() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
+        console.log('Fetched Questions Data:', data); // Log data for debugging
         setQuestionsData(data);
       } catch (error) {
         console.error('Error fetching questions:', error);
@@ -54,7 +55,7 @@ function SurveyPage() {
                 {questionsData.questions
                   .filter(question => question.category_ref['@ref'].id === category.id) // Ensure correct reference comparison
                   .map((trait) => (
-                    <div key={trait.trait} className="bg-gray-700 p-6 rounded-lg">
+                    <div key={trait.id} className="bg-gray-700 p-6 rounded-lg">
                       <h3 className="text-xl font-semibold mb-3">{trait.trait}</h3>
                       <p className="text-gray-300 mb-4">{trait.description}</p>
                       <div className="space-y-2">
@@ -65,10 +66,10 @@ function SurveyPage() {
                           >
                             <input
                               type="radio"
-                              name={`trait-${trait.trait}`}
+                              name={`trait-${trait.id}`}
                               value={alternative.value}
-                              checked={answers[trait.trait] === alternative.value}
-                              onChange={() => handleAnswer(trait.trait, alternative.value)}
+                              checked={answers[trait.id] === alternative.value}
+                              onChange={() => handleAnswer(trait.id, alternative.value)}
                               className="form-radio h-5 w-5 text-blue-600 cursor-pointer"
                             />
                             <span className="text-sm sm:text-base flex-grow">{alternative.description}</span>
