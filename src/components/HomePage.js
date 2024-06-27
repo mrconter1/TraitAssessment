@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { uniqueNamesGenerator, Config, adjectives, colors, animals } from 'unique-names-generator';
+import { uniqueNamesGenerator, adjectives, colors, animals } from 'unique-names-generator';
 import Cookies from 'js-cookie';
 
 function HomePage() {
