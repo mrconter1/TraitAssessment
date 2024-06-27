@@ -44,8 +44,27 @@ async function createIndexIfNotExists(name, source, terms, unique = false) {
     }
 }
 
+async function isDatabaseEmpty() {
+    const collections = ['Users', 'Surveys', 'Categories', 'Questions', 'Responses', 'StandardizedAlternatives'];
+    for (const collection of collections) {
+        const count = await client.query(
+            q.Count(q.Documents(q.Collection(collection)))
+        );
+        if (count > 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 async function setupFaunaDB() {
     try {
+        const isEmpty = await isDatabaseEmpty();
+        if (!isEmpty) {
+            console.log("Database is not empty. Setup aborted.");
+            return;
+        }
+
         const collections = ['Users', 'Surveys', 'Categories', 'Questions', 'Responses', 'StandardizedAlternatives'];
         for (const collection of collections) {
             await createCollectionIfNotExists(collection);
