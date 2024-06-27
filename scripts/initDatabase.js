@@ -1,5 +1,7 @@
 const faunadb = require('faunadb');
 const q = faunadb.query;
+const fs = require('fs').promises;
+const path = require('path');
 
 const secretKey = process.env.DB_KEY;
 if (!secretKey) {
@@ -9,23 +11,15 @@ if (!secretKey) {
 
 const client = new faunadb.Client({ secret: secretKey });
 
-const questionsData = [
-  {
-    "category": "Personal Traits and Interests",
-    "traits": [
-      {
-        "trait": "Wisdom",
-        "description": "Wisdom refers to the individual's ability to make sound decisions and judgments based on knowledge and experience."
-      },
-      {
-        "trait": "Arrogance",
-        "description": "Arrogance refers to an exaggerated sense of one's own importance or abilities."
-      },
-      // ... other traits ...
-    ]
-  },
-  // ... other categories ...
-];
+async function readJSONFile(filePath) {
+    try {
+        const data = await fs.readFile(filePath, 'utf8');
+        return JSON.parse(data);
+    } catch (error) {
+        console.error(`Error reading file ${filePath}:`, error);
+        throw error;
+    }
+}
 
 async function createCollectionIfNotExists(name) {
     const exists = await client.query(q.Exists(q.Collection(name)));
@@ -70,17 +64,7 @@ async function setupFaunaDB() {
             await createIndexIfNotExists(index.name, index.source, index.terms, index.unique);
         }
 
-        const alternatives = [
-            { value: -1, description: "I prefer not to answer" },
-            { value: 0, description: "Well below average" },
-            { value: 1, description: "Below average" },
-            { value: 2, description: "Slightly below average" },
-            { value: 3, description: "Average" },
-            { value: 4, description: "Slightly above average" },
-            { value: 5, description: "Above average" },
-            { value: 6, description: "Well above average" }
-        ];
-
+        const alternatives = await readJSONFile(path.join(__dirname, 'data', 'alternatives.json'));
         await client.query(
             q.Map(
                 alternatives,
@@ -92,7 +76,7 @@ async function setupFaunaDB() {
         );
         console.log("StandardizedAlternatives added.");
 
-        // Add categories and questions
+        const questionsData = await readJSONFile(path.join(__dirname, 'data', 'questions.json'));
         for (const category of questionsData) {
             const categoryRef = await client.query(
                 q.Create(q.Collection('Categories'), { data: { name: category.category } })

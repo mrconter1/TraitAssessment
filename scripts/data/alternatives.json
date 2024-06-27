@@ -1,0 +1,10 @@
+[
+    { "value": -1, "description": "I prefer not to answer" },
+    { "value": 0, "description": "Well below average" },
+    { "value": 1, "description": "Below average" },
+    { "value": 2, "description": "Slightly below average" },
+    { "value": 3, "description": "Average" },
+    { "value": 4, "description": "Slightly above average" },
+    { "value": 5, "description": "Above average" },
+    { "value": 6, "description": "Well above average" }
+]
