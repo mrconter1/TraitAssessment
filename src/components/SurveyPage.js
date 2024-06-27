@@ -52,7 +52,7 @@ function SurveyPage() {
               <h2 className="text-2xl font-bold mb-6 text-center">{category.name}</h2>
               <div className="space-y-8">
                 {questionsData.questions
-                  .filter(question => question.category_ref === category.ref)
+                  .filter(question => question.category_ref['@ref'].id === category.id) // Ensure correct reference comparison
                   .map((trait) => (
                     <div key={trait.trait} className="bg-gray-700 p-6 rounded-lg">
                       <h3 className="text-xl font-semibold mb-3">{trait.trait}</h3>
