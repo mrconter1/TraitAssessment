@@ -91,9 +91,7 @@ function SurveyPage() {
                       <div className="space-y-2">
                         {reversedAlternatives.map((alternative, altIndex) => (
                           <React.Fragment key={altIndex}>
-                            {alternative.value === 'prefer_not_to_answer' && <hr className="my-2 border-gray-500" />}
                             <label
-                              key={altIndex}
                               className="flex items-center space-x-3 p-2 rounded hover:bg-gray-600 transition-colors duration-200 cursor-pointer"
                             >
                               <input
@@ -106,6 +104,9 @@ function SurveyPage() {
                               />
                               <span className="text-sm sm:text-base flex-grow">{alternative.description}</span>
                             </label>
+                            {altIndex === reversedAlternatives.length - 2 && (
+                              <hr className="my-2 border-gray-500" />
+                            )}
                           </React.Fragment>
                         ))}
                       </div>
