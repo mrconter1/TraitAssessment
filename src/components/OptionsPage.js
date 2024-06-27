@@ -6,7 +6,7 @@ import Cookies from 'js-cookie';
 function OptionsPage() {
   const { personalId } = useParams();
   const [inviteLinks, setInviteLinks] = useState([]);
-  const [copied, setCopied] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
@@ -37,8 +37,8 @@ function OptionsPage() {
 
   const copyToClipboard = (link) => {
     navigator.clipboard.writeText(link).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
+      setCopiedLink(link);
+      setTimeout(() => setCopiedLink(null), 3000);
     });
   };
 
@@ -70,32 +70,35 @@ function OptionsPage() {
           {inviteLinks.length > 0 && (
             <div className="text-center">
               <p className="text-sm text-gray-400 mb-2">Invite Links:</p>
-              {inviteLinks.map((inviteId, index) => (
-                <div key={index} className="mb-4">
-                  <div className="flex items-stretch">
-                    <input
-                      ref={linkInputRef}
-                      type="text"
-                      value={`${window.location.origin}/invite/${inviteId}`}
-                      readOnly
-                      className="flex-grow bg-gray-700 text-white px-3 py-2 rounded-l focus:outline-none"
-                    />
-                    <button
-                      onClick={() => copyToClipboard(`${window.location.origin}/invite/${inviteId}`)}
-                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 rounded-r focus:outline-none transition duration-150 ease-in-out flex items-center justify-center"
-                    >
-                      {copied ? (
-                        <CheckIcon className="h-5 w-5" />
-                      ) : (
-                        <ClipboardIcon className="h-5 w-5" />
-                      )}
-                    </button>
+              {inviteLinks.map((inviteId, index) => {
+                const inviteLink = `${window.location.origin}/invite/${inviteId}`;
+                return (
+                  <div key={index} className="mb-4">
+                    <div className="flex items-stretch">
+                      <input
+                        ref={linkInputRef}
+                        type="text"
+                        value={inviteLink}
+                        readOnly
+                        className="flex-grow bg-gray-700 text-white px-3 py-2 rounded-l focus:outline-none"
+                      />
+                      <button
+                        onClick={() => copyToClipboard(inviteLink)}
+                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 rounded-r focus:outline-none transition duration-150 ease-in-out flex items-center justify-center"
+                      >
+                        {copiedLink === inviteLink ? (
+                          <CheckIcon className="h-5 w-5" />
+                        ) : (
+                          <ClipboardIcon className="h-5 w-5" />
+                        )}
+                      </button>
+                    </div>
+                    {copiedLink === inviteLink && (
+                      <p className="text-green-500 mt-2">Copied to clipboard!</p>
+                    )}
                   </div>
-                  {copied && (
-                    <p className="text-green-500 mt-2">Copied to clipboard!</p>
-                  )}
-                </div>
-              ))}
+                );
+              })}
               <p className="text-sm text-gray-400 mt-2">
                 These invite links will create persistent survey links that can be revisited.
               </p>
