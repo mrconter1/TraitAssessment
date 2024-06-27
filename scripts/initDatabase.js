@@ -45,16 +45,8 @@ async function createIndexIfNotExists(name, source, terms, unique = false) {
 }
 
 async function isDatabaseEmpty() {
-    const collections = ['Users', 'Surveys', 'Categories', 'Questions', 'Responses', 'StandardizedAlternatives'];
-    for (const collection of collections) {
-        const count = await client.query(
-            q.Count(q.Documents(q.Collection(collection)))
-        );
-        if (count > 0) {
-            return false;
-        }
-    }
-    return true;
+    const collections = await client.query(q.Paginate(q.Collections()));
+    return collections.data.length === 0;
 }
 
 async function setupFaunaDB() {
