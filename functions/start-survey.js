@@ -17,7 +17,7 @@ exports.handler = async (event, context) => {
 
     // Fetch the invite
     const invite = await client.query(
-      q.Get(q.Ref(q.Collection('Invites'), inviteId))
+      q.Get(q.Match(q.Index('invite_by_invite_id'), inviteId))
     );
 
     if (invite.data.is_used) {
@@ -37,9 +37,9 @@ exports.handler = async (event, context) => {
       )
     );
 
-    // Delete the invite
+    // Mark the invite as used
     await client.query(
-      q.Delete(q.Ref(q.Collection('Invites'), inviteId))
+      q.Update(q.Ref(q.Collection('Invites'), invite.ref.id), { data: { is_used: true } })
     );
 
     return {

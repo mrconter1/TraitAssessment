@@ -27,7 +27,7 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify({
         message: "Invite created successfully.",
-        inviteId: result.ref.id
+        inviteId: inviteId
       })
     };
   } catch (error) {

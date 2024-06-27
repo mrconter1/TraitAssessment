@@ -17,7 +17,7 @@ exports.handler = async (event, context) => {
 
     // Fetch the invite
     const invite = await client.query(
-      q.Get(q.Ref(q.Collection('Invites'), inviteId))
+      q.Get(q.Match(q.Index('invite_by_invite_id'), inviteId))
     );
 
     if (invite.data.is_used) {

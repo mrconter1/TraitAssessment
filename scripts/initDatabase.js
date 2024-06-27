@@ -72,7 +72,8 @@ async function setupFaunaDB() {
             { name: 'all_categories', source: 'Categories', terms: [] },
             { name: 'all_questions', source: 'Questions', terms: [] },
             { name: 'all_standardized_alternatives', source: 'StandardizedAlternatives', terms: [] },
-            { name: 'all_invites', source: 'Invites', terms: [] }
+            { name: 'all_invites', source: 'Invites', terms: [] },
+            { name: 'invite_by_invite_id', source: 'Invites', terms: ['invite_id'], unique: true }
         ];
 
         for (const index of indexes) {
