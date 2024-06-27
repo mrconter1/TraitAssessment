@@ -48,6 +48,7 @@ function OptionsPage() {
   };
 
   const startSelfRating = async () => {
+    setError('');
     try {
       const response = await fetch('/.netlify/functions/create-personal-survey', {
         method: 'POST',
@@ -81,6 +82,13 @@ function OptionsPage() {
           </div>
         </div>
         <div className="mt-8 space-y-6">
+          <button
+            onClick={startSelfRating}
+            className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out"
+          >
+            Start Personal Survey
+          </button>
+          {error && <p className="text-red-500 text-center">{error}</p>}
           <button
             onClick={generateInviteLink}
             disabled={isGenerating}
@@ -132,12 +140,6 @@ function OptionsPage() {
           >
             View Survey Results
           </Link>
-          <button
-            onClick={startSelfRating}
-            className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out"
-          >
-            Rate Yourself
-          </button>
           <button
             onClick={handleLogout}
             className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out flex items-center justify-center"
