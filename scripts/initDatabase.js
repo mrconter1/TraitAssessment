@@ -68,7 +68,10 @@ async function setupFaunaDB() {
             { name: 'questions_by_survey', source: 'Questions', terms: ['survey_ref'] },
             { name: 'questions_by_category', source: 'Questions', terms: ['category_ref'] },
             { name: 'responses_by_survey', source: 'Responses', terms: ['survey_ref'] },
-            { name: 'responses_by_question', source: 'Responses', terms: ['question_ref'] }
+            { name: 'responses_by_question', source: 'Responses', terms: ['question_ref'] },
+            { name: 'all_categories', source: 'Categories', terms: [] },
+            { name: 'all_questions', source: 'Questions', terms: [] },
+            { name: 'all_standardized_alternatives', source: 'StandardizedAlternatives', terms: [] }
         ];
 
         for (const index of indexes) {
