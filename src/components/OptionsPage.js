@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 function OptionsPage() {
   const { personalId } = useParams();
-  const [inviteId, setInviteId] = useState('');
+  const [inviteLinks, setInviteLinks] = useState([]);
   const [copied, setCopied] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState('');
@@ -26,7 +26,7 @@ function OptionsPage() {
       }
 
       const data = await response.json();
-      setInviteId(data.inviteId);
+      setInviteLinks((prev) => [...prev, data.inviteId]);
     } catch (error) {
       console.error('Error generating invite link:', error);
       setError('Failed to generate invite link. Please try again.');
@@ -35,14 +35,11 @@ function OptionsPage() {
     }
   };
 
-  const copyToClipboard = (e) => {
-    e.preventDefault();
-    if (linkInputRef.current) {
-      navigator.clipboard.writeText(linkInputRef.current.value).then(() => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 3000);
-      });
-    }
+  const copyToClipboard = (link) => {
+    navigator.clipboard.writeText(link).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    });
   };
 
   const handleLogout = () => {
@@ -70,33 +67,37 @@ function OptionsPage() {
             {isGenerating ? 'Generating...' : 'Generate Invite Link'}
           </button>
           {error && <p className="text-red-500 text-center">{error}</p>}
-          {inviteId && (
+          {inviteLinks.length > 0 && (
             <div className="text-center">
-              <p className="text-sm text-gray-400 mb-2">Invite Link:</p>
-              <div className="flex items-stretch">
-                <input
-                  ref={linkInputRef}
-                  type="text"
-                  value={`${window.location.origin}/invite/${inviteId}`}
-                  readOnly
-                  className="flex-grow bg-gray-700 text-white px-3 py-2 rounded-l focus:outline-none"
-                />
-                <button
-                  onClick={copyToClipboard}
-                  className="bg-blue-500 hover:bg-blue-600 text-white px-3 rounded-r focus:outline-none transition duration-150 ease-in-out flex items-center justify-center"
-                >
-                  {copied ? (
-                    <CheckIcon className="h-5 w-5" />
-                  ) : (
-                    <ClipboardIcon className="h-5 w-5" />
+              <p className="text-sm text-gray-400 mb-2">Invite Links:</p>
+              {inviteLinks.map((inviteId, index) => (
+                <div key={index} className="mb-4">
+                  <div className="flex items-stretch">
+                    <input
+                      ref={linkInputRef}
+                      type="text"
+                      value={`${window.location.origin}/invite/${inviteId}`}
+                      readOnly
+                      className="flex-grow bg-gray-700 text-white px-3 py-2 rounded-l focus:outline-none"
+                    />
+                    <button
+                      onClick={() => copyToClipboard(`${window.location.origin}/invite/${inviteId}`)}
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-3 rounded-r focus:outline-none transition duration-150 ease-in-out flex items-center justify-center"
+                    >
+                      {copied ? (
+                        <CheckIcon className="h-5 w-5" />
+                      ) : (
+                        <ClipboardIcon className="h-5 w-5" />
+                      )}
+                    </button>
+                  </div>
+                  {copied && (
+                    <p className="text-green-500 mt-2">Copied to clipboard!</p>
                   )}
-                </button>
-              </div>
-              {copied && (
-                <p className="text-green-500 mt-2">Copied to clipboard!</p>
-              )}
+                </div>
+              ))}
               <p className="text-sm text-gray-400 mt-2">
-                This invite link will create a persistent survey link that can be revisited.
+                These invite links will create persistent survey links that can be revisited.
               </p>
             </div>
           )}
