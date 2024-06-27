@@ -1,18 +1,8 @@
-const faunadb = require('faunadb');
-const q = faunadb.query;
+const { getFaunaClient, handleError, q } = require('../utils/faunaClient');
 
-exports.handler = async (event, context) => {
-  const secretKey = process.env.DB_KEY;
-  if (!secretKey) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Oops! We couldn't find the database key. Please contact support." })
-    };
-  }
-
-  const client = new faunadb.Client({ secret: secretKey });
-
+exports.handler = async (event) => {
   try {
+    const client = getFaunaClient();
     const { inviteId } = JSON.parse(event.body);
 
     // Fetch the invite
@@ -38,10 +28,6 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ error: 'Invite link does not exist' })
       };
     }
-    console.error('Error validating invite:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Sorry, we couldn't validate the invite. Please try again or contact support if the problem persists." })
-    };
+    return handleError(error, "Sorry, we couldn't validate the invite. Please try again or contact support if the problem persists.");
   }
 };

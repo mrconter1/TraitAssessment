@@ -1,18 +1,8 @@
-const faunadb = require('faunadb');
-const q = faunadb.query;
+const { getFaunaClient, handleError, q } = require('../utils/faunaClient');
 
-exports.handler = async (event, context) => {
-  const secretKey = process.env.DB_KEY;
-  if (!secretKey) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Oops! We couldn't find the database key. Please contact support." })
-    };
-  }
-
-  const client = new faunadb.Client({ secret: secretKey });
-
+exports.handler = async (event) => {
   try {
+    const client = getFaunaClient();
     const { personalId, surveyId } = JSON.parse(event.body);
 
     // Fetch the user reference by personal ID
@@ -41,10 +31,6 @@ exports.handler = async (event, context) => {
       })
     };
   } catch (error) {
-    console.error('Error creating survey link:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Sorry, we couldn't link your personal ID to the survey. Please try again or contact support if the problem persists." })
-    };
+    return handleError(error, "Sorry, we couldn't link your personal ID to the survey. Please try again or contact support if the problem persists.");
   }
 };

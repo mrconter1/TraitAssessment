@@ -1,18 +1,8 @@
-const faunadb = require('faunadb');
-const q = faunadb.query;
+const { getFaunaClient, handleError, q } = require('../utils/faunaClient');
 
-exports.handler = async (event, context) => {
-  const secretKey = process.env.DB_KEY;
-  if (!secretKey) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Oops! We couldn't find the database key. Please contact support." })
-    };
-  }
-
-  const client = new faunadb.Client({ secret: secretKey });
-
+exports.handler = async (event) => {
   try {
+    const client = getFaunaClient();
     const { inviteId } = JSON.parse(event.body);
 
     // Fetch the invite
@@ -27,7 +17,7 @@ exports.handler = async (event, context) => {
       };
     }
 
-    const surveyId = Array(10).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
+    const surveyId = Array.from({ length: 10 }, () => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
 
     // Create the survey
     await client.query(
@@ -46,7 +36,7 @@ exports.handler = async (event, context) => {
       statusCode: 200,
       body: JSON.stringify({
         message: "Survey created successfully.",
-        surveyId: surveyId
+        surveyId
       })
     };
   } catch (error) {
@@ -56,10 +46,6 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({ error: 'Invite link does not exist' })
       };
     }
-    console.error('Error starting survey:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Sorry, we couldn't start the survey. Please try again or contact support if the problem persists." })
-    };
+    return handleError(error, "Sorry, we couldn't start the survey. Please try again or contact support if the problem persists.");
   }
 };

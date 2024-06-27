@@ -1,18 +1,8 @@
-const faunadb = require('faunadb');
-const q = faunadb.query;
+const { getFaunaClient, handleError, q } = require('../utils/faunaClient');
 
-exports.handler = async (event, context) => {
-  const secretKey = process.env.DB_KEY;
-  if (!secretKey) {
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Oops! We couldn't find the database key. Please contact support." })
-    };
-  }
-
-  const client = new faunadb.Client({ secret: secretKey });
-
+exports.handler = async () => {
   try {
+    const client = getFaunaClient();
     const categories = await client.query(
       q.Map(
         q.Paginate(q.Documents(q.Collection('Categories'))),
@@ -34,21 +24,15 @@ exports.handler = async (event, context) => {
       )
     );
 
-    const response = {
-      categories: categories.data.map(cat => ({ id: cat.ref.id, ...cat.data })),
-      questions: questions.data.map(q => ({ id: q.ref.id, ...q.data })),
-      standardizedAlternatives: standardizedAlternatives.data.map(alt => ({ id: alt.ref.id, ...alt.data }))
-    };
-
     return {
       statusCode: 200,
-      body: JSON.stringify(response)
+      body: JSON.stringify({
+        categories: categories.data.map(cat => ({ id: cat.ref.id, ...cat.data })),
+        questions: questions.data.map(q => ({ id: q.ref.id, ...q.data })),
+        standardizedAlternatives: standardizedAlternatives.data.map(alt => ({ id: alt.ref.id, ...alt.data }))
+      })
     };
   } catch (error) {
-    console.error('Error fetching questions:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: "Sorry, we couldn't fetch the questions. Please try again or contact support if the problem persists." })
-    };
+    return handleError(error, "Sorry, we couldn't fetch the questions. Please try again or contact support if the problem persists.");
   }
 };
