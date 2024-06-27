@@ -17,14 +17,15 @@ function InvitePage() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to start survey');
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to start survey');
       }
 
       const data = await response.json();
       navigate(`/survey/${data.surveyId}`);
     } catch (error) {
       console.error('Error starting survey:', error);
-      setError('Failed to start survey. Please try again.');
+      setError(error.message);
     } finally {
       setIsStarting(false);
     }
@@ -35,7 +36,9 @@ function InvitePage() {
       <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-2">Invite</h1>
-          <p className="text-sm text-gray-400">You have been invited to participate in a survey. Click the button below to start.</p>
+          <p className="text-sm text-gray-400">
+            You have been invited to participate in a survey. Click the button below to start. The generated survey link will be persistent, allowing you to revisit the survey at any time.
+          </p>
         </div>
         <div className="mt-8 space-y-6">
           <button 

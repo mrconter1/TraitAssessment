@@ -21,7 +21,10 @@ exports.handler = async (event, context) => {
     );
 
     if (invite.data.is_used) {
-      throw new Error('Invite link has already been used');
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Invite link has already been used' })
+      };
     }
 
     const surveyId = Array(10).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
@@ -34,11 +37,9 @@ exports.handler = async (event, context) => {
       )
     );
 
-    // Mark the invite as used
+    // Delete the invite
     await client.query(
-      q.Update(q.Ref(q.Collection('Invites'), inviteId), {
-        data: { is_used: true }
-      })
+      q.Delete(q.Ref(q.Collection('Invites'), inviteId))
     );
 
     return {
@@ -49,6 +50,12 @@ exports.handler = async (event, context) => {
       })
     };
   } catch (error) {
+    if (error.requestResult && error.requestResult.statusCode === 404) {
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ error: 'Invite link does not exist' })
+      };
+    }
     console.error('Error starting survey:', error);
     return {
       statusCode: 500,

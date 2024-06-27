@@ -95,6 +95,9 @@ function OptionsPage() {
               {copied && (
                 <p className="text-green-500 mt-2">Copied to clipboard!</p>
               )}
+              <p className="text-sm text-gray-400 mt-2">
+                This invite link will create a persistent survey link that can be revisited.
+              </p>
             </div>
           )}
           <Link 
