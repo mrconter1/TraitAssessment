@@ -24,11 +24,27 @@ function SurveyPage() {
     fetchQuestions();
   }, []);
 
-  const handleAnswer = (traitId, value) => {
+  const handleAnswer = async (traitId, value) => {
     setAnswers(prev => ({
       ...prev,
       [traitId]: value
     }));
+
+    try {
+      await fetch('/.netlify/functions/save-response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          survey_id: surveyId,
+          question_id: traitId,
+          selection: value,
+        }),
+      });
+    } catch (error) {
+      console.error('Error saving response:', error);
+    }
   };
 
   if (!questionsData) {

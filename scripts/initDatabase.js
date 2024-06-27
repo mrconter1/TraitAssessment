@@ -65,6 +65,7 @@ async function setupFaunaDB() {
         const indexes = [
             { name: 'users_by_personal_id', source: 'Users', terms: ['personal_id'], unique: true },
             { name: 'surveys_by_user', source: 'Surveys', terms: ['user_ref'] },
+            { name: 'survey_by_id', source: 'Surveys', terms: ['survey_id'], unique: true },
             { name: 'questions_by_survey', source: 'Questions', terms: ['survey_ref'] },
             { name: 'questions_by_category', source: 'Questions', terms: ['category_ref'] },
             { name: 'responses_by_survey', source: 'Responses', terms: ['survey_ref'] },
