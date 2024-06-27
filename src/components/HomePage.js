@@ -16,7 +16,7 @@ function HomePage() {
   }, [navigate]);
 
   const generatePersonalId = () => {
-    const customConfig: Config = {
+    const customConfig = {
       dictionaries: [adjectives, colors, animals],
       separator: '-',
       length: 3,
@@ -25,8 +25,30 @@ function HomePage() {
     setPersonalId(id);
   };
 
+  const createUser = async (personalId) => {
+    try {
+      const response = await fetch('/.netlify/functions/create-user', {
+        method: 'POST',
+        body: JSON.stringify({ personalId }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      console.log('User created:', data);
+    } catch (error) {
+      console.error('Error creating user:', error);
+    }
+  };
+
   const handleContinue = () => {
     if (personalId) {
+      createUser(personalId);
       if (rememberMe) {
         Cookies.set('personalId', personalId, { expires: 30 });
       }

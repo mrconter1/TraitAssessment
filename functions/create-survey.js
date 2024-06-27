@@ -11,14 +11,25 @@ exports.handler = async (event, context) => {
   }
 
   const client = new faunadb.Client({ secret: secretKey });
-  
+
   try {
     const { personalId, surveyId } = JSON.parse(event.body);
 
+    // Fetch the user reference by personal ID
+    const userRef = await client.query(
+      q.Select(
+        "ref",
+        q.Get(
+          q.Match(q.Index('users_by_personal_id'), personalId)
+        )
+      )
+    );
+
+    // Create the survey with a reference to the user
     const result = await client.query(
       q.Create(
-        q.Collection('surveys'),
-        { data: { personalId, surveyId } }
+        q.Collection('Surveys'),
+        { data: { user_ref: userRef, surveyId } }
       )
     );
 
