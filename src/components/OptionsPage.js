@@ -5,33 +5,31 @@ import Cookies from 'js-cookie';
 
 function OptionsPage() {
   const { personalId } = useParams();
-  const [surveyId, setSurveyId] = useState('');
+  const [inviteId, setInviteId] = useState('');
   const [copied, setCopied] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
   const linkInputRef = useRef(null);
 
-  const generateSurveyLink = async () => {
+  const generateInviteLink = async () => {
     setIsGenerating(true);
     setError('');
     try {
-      const newSurveyId = Array(10).fill(0).map(() => String.fromCharCode(97 + Math.floor(Math.random() * 26))).join('');
-      
-      const response = await fetch('/.netlify/functions/create-survey', {
+      const response = await fetch('/.netlify/functions/create-invite', {
         method: 'POST',
-        body: JSON.stringify({ personalId, surveyId: newSurveyId }),
+        body: JSON.stringify({ personalId }),
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create survey');
+        throw new Error('Failed to create invite');
       }
 
-      await response.json();
-      setSurveyId(newSurveyId);
+      const data = await response.json();
+      setInviteId(data.inviteId);
     } catch (error) {
-      console.error('Error generating survey link:', error);
-      setError('Failed to generate survey link. Please try again.');
+      console.error('Error generating invite link:', error);
+      setError('Failed to generate invite link. Please try again.');
     } finally {
       setIsGenerating(false);
     }
@@ -65,21 +63,21 @@ function OptionsPage() {
         </div>
         <div className="mt-8 space-y-6">
           <button 
-            onClick={generateSurveyLink}
+            onClick={generateInviteLink}
             disabled={isGenerating}
             className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out ${isGenerating ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            {isGenerating ? 'Generating...' : 'Generate Survey Link'}
+            {isGenerating ? 'Generating...' : 'Generate Invite Link'}
           </button>
           {error && <p className="text-red-500 text-center">{error}</p>}
-          {surveyId && (
+          {inviteId && (
             <div className="text-center">
-              <p className="text-sm text-gray-400 mb-2">Survey Link:</p>
+              <p className="text-sm text-gray-400 mb-2">Invite Link:</p>
               <div className="flex items-stretch">
                 <input
                   ref={linkInputRef}
                   type="text"
-                  value={`${window.location.origin}/survey/${surveyId}`}
+                  value={`${window.location.origin}/invite/${inviteId}`}
                   readOnly
                   className="flex-grow bg-gray-700 text-white px-3 py-2 rounded-l focus:outline-none"
                 />
