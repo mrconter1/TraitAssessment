@@ -9,6 +9,24 @@ if (!secretKey) {
 
 const client = new faunadb.Client({ secret: secretKey });
 
+const questionsData = [
+  {
+    "category": "Personal Traits and Interests",
+    "traits": [
+      {
+        "trait": "Wisdom",
+        "description": "Wisdom refers to the individual's ability to make sound decisions and judgments based on knowledge and experience."
+      },
+      {
+        "trait": "Arrogance",
+        "description": "Arrogance refers to an exaggerated sense of one's own importance or abilities."
+      },
+      // ... other traits ...
+    ]
+  },
+  // ... other categories ...
+];
+
 async function createCollectionIfNotExists(name) {
     const exists = await client.query(q.Exists(q.Collection(name)));
     if (!exists) {
@@ -73,6 +91,31 @@ async function setupFaunaDB() {
             )
         );
         console.log("StandardizedAlternatives added.");
+
+        // Add categories and questions
+        for (const category of questionsData) {
+            const categoryRef = await client.query(
+                q.Create(q.Collection('Categories'), { data: { name: category.category } })
+            );
+            console.log(`Category '${category.category}' added.`);
+
+            await client.query(
+                q.Map(
+                    category.traits,
+                    q.Lambda(
+                        'trait',
+                        q.Create(q.Collection('Questions'), {
+                            data: {
+                                category_ref: categoryRef.ref,
+                                trait: q.Select(['trait'], q.Var('trait')),
+                                description: q.Select(['description'], q.Var('trait'))
+                            }
+                        })
+                    )
+                )
+            );
+            console.log(`Questions for category '${category.category}' added.`);
+        }
 
         console.log("Database setup complete.");
     } catch (error) {
