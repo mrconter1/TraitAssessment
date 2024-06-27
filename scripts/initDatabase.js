@@ -57,7 +57,7 @@ async function setupFaunaDB() {
             return;
         }
 
-        const collections = ['Users', 'Surveys', 'Categories', 'Questions', 'Responses', 'StandardizedAlternatives', 'Invites'];
+        const collections = ['Users', 'Surveys', 'Categories', 'Questions', 'Responses', 'StandardizedAlternatives', 'Invites', 'PersonalSurveys'];
         for (const collection of collections) {
             await createCollectionIfNotExists(collection);
         }
@@ -75,7 +75,8 @@ async function setupFaunaDB() {
             { name: 'all_questions', source: 'Questions', terms: [] },
             { name: 'all_standardized_alternatives', source: 'StandardizedAlternatives', terms: [] },
             { name: 'all_invites', source: 'Invites', terms: [] },
-            { name: 'invite_by_invite_id', source: 'Invites', terms: ['invite_id'], unique: true }
+            { name: 'invite_by_invite_id', source: 'Invites', terms: ['invite_id'], unique: true },
+            { name: 'personal_surveys_by_user', source: 'PersonalSurveys', terms: ['user_ref'], unique: true }
         ];
 
         for (const index of indexes) {

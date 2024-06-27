@@ -47,6 +47,28 @@ function OptionsPage() {
     navigate('/');
   };
 
+  const startSelfRating = async () => {
+    try {
+      const response = await fetch('/.netlify/functions/create-personal-survey', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ personalId }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create personal survey');
+      }
+
+      const data = await response.json();
+      navigate(`/survey/${data.surveyId}`);
+    } catch (error) {
+      console.error('Error starting self-rating:', error);
+      setError('Failed to start self-rating. Please try again.');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center px-4">
       <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
@@ -59,7 +81,7 @@ function OptionsPage() {
           </div>
         </div>
         <div className="mt-8 space-y-6">
-          <button 
+          <button
             onClick={generateInviteLink}
             disabled={isGenerating}
             className={`w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out ${isGenerating ? 'opacity-50 cursor-not-allowed' : ''}`}
@@ -104,13 +126,19 @@ function OptionsPage() {
               </p>
             </div>
           )}
-          <Link 
+          <Link
             to={`/${personalId}/view-results`}
             className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out"
           >
             View Survey Results
           </Link>
-          <button 
+          <button
+            onClick={startSelfRating}
+            className="w-full bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out"
+          >
+            Rate Yourself
+          </button>
+          <button
             onClick={handleLogout}
             className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline block text-center transition duration-150 ease-in-out flex items-center justify-center"
           >
