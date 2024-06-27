@@ -1,3 +1,4 @@
+// SurveyPage.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -5,25 +6,43 @@ function SurveyPage() {
   const { surveyId } = useParams();
   const [questionsData, setQuestionsData] = useState(null);
   const [answers, setAnswers] = useState({});
+  const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchQuestions = async () => {
+    const validateAndFetchSurvey = async () => {
       try {
-        const response = await fetch('/.netlify/functions/get-questions', {
+        // First, validate the survey
+        const validateResponse = await fetch('/.netlify/functions/validate-survey', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ surveyId }),
+        });
+
+        if (!validateResponse.ok) {
+          const errorData = await validateResponse.json();
+          throw new Error(errorData.error || 'Failed to validate survey');
+        }
+
+        // If validation succeeds, fetch the questions
+        const questionsResponse = await fetch('/.netlify/functions/get-questions', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ survey_id: surveyId }),
         });
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+
+        if (!questionsResponse.ok) {
+          throw new Error('Failed to fetch questions');
         }
-        const data = await response.json();
-        console.log('Fetched Questions Data:', data); // Log data for debugging
+
+        const data = await questionsResponse.json();
         setQuestionsData(data);
 
-        // Initialize answers state with existing responses or default to "I prefer not to answer"
+        // Initialize answers state
         const initialAnswers = {};
         data.questions.forEach((question) => {
           const existingResponse = data.responses.find((res) => res.question_id === question.id);
@@ -31,11 +50,14 @@ function SurveyPage() {
         });
         setAnswers(initialAnswers);
       } catch (error) {
-        console.error('Error fetching questions:', error);
+        console.error('Error:', error);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchQuestions();
+    validateAndFetchSurvey();
   }, [surveyId]);
 
   const handleAnswer = async (traitId, value) => {
@@ -61,10 +83,23 @@ function SurveyPage() {
     }
   };
 
-  if (!questionsData) {
+  if (isLoading) {
     return (
       <div className="min-h-screen bg-gray-900 text-white p-4 sm:p-8 flex items-center justify-center">
         <div>Loading...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center px-4">
+        <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-xl shadow-md">
+          <div className="text-center">
+            <h1 className="text-3xl font-bold mb-2">Survey Error</h1>
+            <p className="text-red-500 text-center">{error}</p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -83,7 +118,7 @@ function SurveyPage() {
               <h2 className="text-2xl font-bold mb-6 text-center">{category.name}</h2>
               <div className="space-y-8">
                 {questionsData.questions
-                  .filter((question) => question.category_ref['@ref'].id === category.id) // Ensure correct reference comparison
+                  .filter((question) => question.category_ref['@ref'].id === category.id)
                   .map((trait) => (
                     <div key={trait.id} className="bg-gray-700 p-6 rounded-lg">
                       <h3 className="text-xl font-semibold mb-3">{trait.trait}</h3>
