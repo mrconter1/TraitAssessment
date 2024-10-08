@@ -50,7 +50,3 @@ Visit our website and create your personal ID to begin your journey of self-disc
 ## Feedback and Support
 
 We're constantly improving! If you have any suggestions, questions, or need support, please reach out to our team at [contact email/link].
-
----
-
-Start your personal growth journey today with the Trait Assessment App!
