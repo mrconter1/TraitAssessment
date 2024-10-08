@@ -9,27 +9,18 @@ The Trait Assessment App allows users to engage in self-reflection and gather fe
 ## Key Features
 
 1. **Personal ID System**: Users can create or use a unique personal ID for easy access and anonymity.
-
 2. **Self-Assessment**: Complete a comprehensive survey about your own traits and behaviors.
-
 3. **Peer Feedback**: Invite others to provide their perspective on your traits.
-
 4. **Survey Management**: Generate and manage survey invitations for peer assessments.
-
 5. **Result Viewing**: (Coming Soon) Analyze and compare self-assessment results with peer feedback.
 
 ## How It Works
 
 1. **Start**: Enter or generate your personal ID on the home page.
-
 2. **Dashboard**: Access your personal dashboard to manage surveys and invitations.
-
 3. **Self-Assessment**: Complete your personal trait survey.
-
 4. **Invite Peers**: Generate invitation links to send to friends, family, or colleagues for their input.
-
 5. **Peer Surveys**: Invited individuals can easily access and complete the survey about you.
-
 6. **Review**: (Coming Soon) View and analyze the compiled results from self and peer assessments.
 
 ## Benefits
