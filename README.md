@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Trait Assessment App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Trait Assessment App! This web application provides a platform for personal growth and feedback through trait assessments.
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+The Trait Assessment App allows users to engage in self-reflection and gather feedback from peers. By focusing on various personality traits and behaviors, users can gain valuable insights into their strengths and areas for improvement.
 
-### `npm start`
+## Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Personal ID System**: Users can create or use a unique personal ID for easy access and anonymity.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Self-Assessment**: Complete a comprehensive survey about your own traits and behaviors.
 
-### `npm test`
+3. **Peer Feedback**: Invite others to provide their perspective on your traits.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Survey Management**: Generate and manage survey invitations for peer assessments.
 
-### `npm run build`
+5. **Result Viewing**: (Coming Soon) Analyze and compare self-assessment results with peer feedback.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How It Works
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Start**: Enter or generate your personal ID on the home page.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Dashboard**: Access your personal dashboard to manage surveys and invitations.
 
-### `npm run eject`
+3. **Self-Assessment**: Complete your personal trait survey.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Invite Peers**: Generate invitation links to send to friends, family, or colleagues for their input.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **Peer Surveys**: Invited individuals can easily access and complete the survey about you.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+6. **Review**: (Coming Soon) View and analyze the compiled results from self and peer assessments.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Benefits
 
-## Learn More
+- Gain self-awareness through structured self-reflection
+- Receive honest feedback from peers in a confidential manner
+- Identify personal strengths and areas for growth
+- Track progress over time with multiple assessments
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Privacy and Security
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+We take your privacy seriously. All survey responses are confidential, and personal IDs are used to maintain anonymity while allowing for result tracking.
 
-### Code Splitting
+## Get Started
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Visit our website and create your personal ID to begin your journey of self-discovery and growth!
 
-### Analyzing the Bundle Size
+## Feedback and Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+We're constantly improving! If you have any suggestions, questions, or need support, please reach out to our team at [contact email/link].
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Start your personal growth journey today with the Trait Assessment App!
